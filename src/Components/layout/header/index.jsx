@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { getProducts, getHomeApi, getEvent } from '../../../actions'
 import { Button } from 'react-bootstrap'
-import Cart from '../../pages/Cart'
+import CartAny from './Cart-any'
 import './index.scss'
 class Header extends React.Component {
   state = { query: '' }
@@ -54,13 +54,11 @@ class Header extends React.Component {
             <Link to='/reactCv-shopping/list' className='btn-submit'> <button onClick={this.handleSearch}>Search</button></Link>
           </form>
           <div className='logo-cart'>
-            <Link to='/reactCv-shopping/cart'>
+            <Link to='/reactCv-shopping/cart' className='link-logo-cart'>
               Cart
-              <div>
-                <Cart />
-              </div>
+              <span style={this.props.cart.length !=0? {display : 'block'} : {display : 'none'}}>{this.props.cart.length}</span>
             </Link>
-
+            <CartAny />
           </div>
         </div>
         {/* ===== end ===== */}
@@ -92,9 +90,7 @@ class Header extends React.Component {
 const mapsStateToProps = state => ({
   query: state.query,
   value: state.value,
-  // auth: state.auth,
-  // username: state.username,
-  // password: state.password,
+  cart : state.cart,
   minPrice: state.minPrice,
   maxPrice: state.maxPrice,
   productBanner: state.productBanner

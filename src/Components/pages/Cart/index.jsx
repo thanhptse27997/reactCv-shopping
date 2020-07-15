@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Button } from 'react-bootstrap'
 import { getDetailProduct, getPrice, deleteProduct } from '../../../actions'
 import ProductOfCart from './ProductOfCart'
+import './index.scss'
 class Cart extends React.Component {
     inputChange = (index, event) => {
         let quantity = this.props.quantityProduct[index]
@@ -24,8 +25,7 @@ class Cart extends React.Component {
             return price += number
         }, 0)
         return (
-            <div className='Cart'>
-                <span className='quantity-cart'>{cart.length}</span>
+            <div className='cart-compo'>
                 <div className='list-cart'>
                     <table>
                         {this.props.cart.map((item, index) => (
@@ -37,7 +37,6 @@ class Cart extends React.Component {
                                     <td></td>
                                     <td></td>
                                 </tr>
-                                <tr></tr>
                                 <tr>
                                     <td> <ProductOfCart product={item} index={index} /></td>
                                     <td> x </td>
@@ -53,7 +52,6 @@ class Cart extends React.Component {
                         <p style={{ color: 'red' }}>Total : {totalPriceOfCart.toLocaleString()}đ</p>
                         <Button onClick={this.handleOrderSuccess} variant='outline-success' style={{ fontSize: '12px' }}>Order Now</Button>
                     </div>
-
                 </div>
             </div>
         )
