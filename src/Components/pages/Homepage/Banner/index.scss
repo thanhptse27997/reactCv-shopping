@@ -1,0 +1,28 @@
+.banner{
+    max-width: 780px;
+    margin: 0 auto;
+    img{
+        width: 100%;
+        max-height: 305px;
+        object-fit: cover;
+    }
+    a {
+        span{
+            display: none;
+        }
+        &.carousel-control-prev{
+            left: 15px;
+            &::before{
+                font-family: 'Font Awesome 5 Pro';
+                content :'\f060';
+            }
+        }
+        &.carousel-control-next{
+            right: 15px;
+            &::before{
+                font-family: 'Font Awesome 5 Pro';
+                content :'\f061';
+            }
+        }
+    }
+}

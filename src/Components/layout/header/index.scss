@@ -1,0 +1,172 @@
+header{
+    background: rgb(24, 158, 255);
+    // ===== headline ===== //
+    .headline{
+        background : rgb(29, 113, 171);
+    }
+    .container-headline{
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .list-services{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .text-intro{
+        p{
+            margin: 0;
+            color: white;
+        }
+    }
+    ul.menu{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        a{
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            padding: 15px 20px;
+            transition: all 0.3s;
+            &:hover{
+                color: black;
+                background: white;
+            }
+        }
+    }
+    // ===== end ===== //
+
+    // ===== header ===== //
+    .container-header{
+        max-width: 1140px;
+        display: flex;
+        margin: 10px auto 0;
+        padding: 0 15px;
+    }
+    .logo{
+        flex: 0 0 10%;
+        max-width: 10%;
+        a{
+            display: inline-block;
+            height: 100%;
+            &:hover >img{
+                transform: scale(1.2,1.2);
+            }
+        }
+        img{
+            width: 50px;
+            transition: all 0.3s;
+        }
+    }
+    .form-search{
+        flex: 0 0 80%;
+        max-width: 80%;
+        position: relative;
+        &:focus{
+            outline: none;
+        }
+        input{
+            height: 100%;
+            width : 100%;
+            padding: 0 15px;
+            &:focus,&:hover{
+                outline: none;
+                a.btn-submit >button::before{
+                    outline : black;
+                }
+            }
+        }
+        a.btn-submit{
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            button{
+                border-width: 1px 1px 1px 0 ;
+                border-color: rgba(0, 0, 0, 0.486);
+                font-size: 0;
+                padding: 0;
+                &:hover{
+                    &::before{
+                        color: white;
+                        background : black;
+                    }
+                }
+                &:before{
+                    font-family : 'Font Awesome 5 Pro';
+                    display: inline-block;
+                    content : '\f002';
+                    font-size: 20px;
+                    padding: 9px 15px;
+                    background: white;
+                    transition: all 0.3s;
+                }
+            }
+
+
+        }
+        // button{
+        //     padding: 12px;
+        //     border-width: 1px;
+        // }
+    }
+    .logo-cart{
+        flex: 0 0 10%;
+        max-width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        a{
+            display: block;
+            font-size: 0;
+            text-decoration: none;
+            color: black;
+            &::before{
+                font-family: 'Font Awesome 5 Pro';
+                content :'\f07a';
+                font-size: 25px;
+                display: block;
+                width: 30px;
+                height: 30px;
+                font-weight: 200;
+            }
+        }
+    }
+    // ===== end ===== //
+
+    // ===== famous query ===== //
+    .famous-query{
+        max-width: 915px;
+        margin: 0 auto;
+        padding: 0 15px;
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            padding-right: 15px;
+            &:hover > button{
+                color: black;
+            }
+        }
+        button{
+            font-size: 14px;
+            color: white;
+            text-decoration: none;
+            border: none;
+            padding: 0;
+            transition: all 0.3s;
+            &:hover{
+                color: unset;
+                text-decoration: none;
+            }
+            &:focus{
+                text-decoration: none;
+            }
+        }
+    }
+    // ===== end ===== //
+}
