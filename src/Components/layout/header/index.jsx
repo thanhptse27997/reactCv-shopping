@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import { getProducts, getHomeApi, getEvent } from '../../../actions'
-import {Button} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
+import Cart from '../../pages/Cart'
 import './index.scss'
 class Header extends React.Component {
   state = { query: '' }
@@ -53,14 +54,20 @@ class Header extends React.Component {
             <Link to='/reactCv-shopping/list' className='btn-submit'> <button onClick={this.handleSearch}>Search</button></Link>
           </form>
           <div className='logo-cart'>
-            <Link to='/reactCv-shopping/cart'>Cart</Link>
+            <Link to='/reactCv-shopping/cart'>
+              Cart
+              <div>
+                <Cart />
+              </div>
+            </Link>
+
           </div>
         </div>
         {/* ===== end ===== */}
 
         {/* ===== famous query ===== */}
         <div className='famous-query'>
-        <Link to='/reactCv-shopping/list'>
+          <Link to='/reactCv-shopping/list'>
             <Button variant='link' type='button' onClick={this.searchByMostView} value="Thời trang nữ">Thời trang nữ</Button>
           </Link>
 

@@ -4,7 +4,9 @@ import Layout from './Components/layout';
 import Listpage from './Components/pages/Listpage';
 import Homepage from './Components/pages/Homepage';
 import Detailpage from './Components/pages/Detailpage';
+import Cart from './Components/pages/Cart';
 import Finishorder from './Components/pages/Finishorder';
+
 
 
 class App extends React.Component{
@@ -17,6 +19,7 @@ class App extends React.Component{
             <Route exact path ='/reactCv-shopping/' component={Homepage} />
             <Route exact path ='/reactCv-shopping/list' component={Listpage} />
             <Route exact path ='/detail' component={Detailpage} />
+            <Route exact path ='/reactCv-shopping/cart' component={Cart} />
             <Route exact path ='/reactCv-shopping/finishOrder' component={Finishorder} />
           </Switch>
         </Layout>

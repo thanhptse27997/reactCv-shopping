@@ -121,11 +121,19 @@ header{
         display: flex;
         justify-content: center;
         align-items: flex-end;
+        div{
+            transform: translateX(-50%) translateY(-50%) scale(0);
+            position: absolute;
+            bottom: 0;
+            font-size: 16px;
+        }
+
         a{
             display: block;
             font-size: 0;
             text-decoration: none;
             color: black;
+            position : relative;
             &::before{
                 font-family: 'Font Awesome 5 Pro';
                 content :'\f07a';
@@ -134,6 +142,11 @@ header{
                 width: 30px;
                 height: 30px;
                 font-weight: 200;
+            }
+            &:hover{
+                div{
+                    transform: translateX(-50%) translateY(-50%) scale(1);
+                }
             }
         }
     }
