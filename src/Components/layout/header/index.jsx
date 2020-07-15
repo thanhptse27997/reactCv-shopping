@@ -29,13 +29,13 @@ class Header extends React.Component {
               </div>
               <ul className='menu'>
                 <li>
-                  <Link className='intro-project' to='/about-us'>Giới thiệu</Link>
+                  <Link className='intro-project' to='/reactCv-shopping/about-us'>Giới thiệu</Link>
                 </li>
                 <li>
-                  <Link to='/list'>Đăng nhập</Link>
+                  <Link to='/reactCv-shopping/list'>Đăng nhập</Link>
                 </li>
                 <li>
-                  <Link to='/registration'>Đăng kí</Link>
+                  <Link to='/reactCv-shopping/registration'>Đăng kí</Link>
                 </li>
               </ul>
             </div>
@@ -46,34 +46,34 @@ class Header extends React.Component {
         {/* container header */}
         <div className='container-header'>
           <div className='logo'>
-            <Link to='/'><img src='assets/images/home.webp' atl='logo' /></Link>
+            <Link to='/reactCv-shopping/'><img src='assets/images/home.webp' atl='logo' /></Link>
           </div>
-          <form className='form-search' onSubmit={() => <Link to='/list'>{this.handleSearch()}</Link>}>
+          <form className='form-search' onSubmit={() => <Link to='/reactCv-shopping/list'>{this.handleSearch()}</Link>}>
             <input type='text' placeholder=' Tìm kiếm ' onChange={this.handleChange} query={this.props.query}></input>
-            <Link to='/list' className='btn-submit'> <button onClick={this.handleSearch}>Search</button></Link>
+            <Link to='/reactCv-shopping/list' className='btn-submit'> <button onClick={this.handleSearch}>Search</button></Link>
           </form>
           <div className='logo-cart'>
-            <Link to='/cart'>Cart</Link>
+            <Link to='/reactCv-shopping/cart'>Cart</Link>
           </div>
         </div>
         {/* ===== end ===== */}
 
         {/* ===== famous query ===== */}
         <div className='famous-query'>
-        <Link to='/list'>
+        <Link to='/reactCv-shopping/list'>
             <Button variant='link' type='button' onClick={this.searchByMostView} value="Thời trang nữ">Thời trang nữ</Button>
           </Link>
 
-          <Link to='/list'>
+          <Link to='/reactCv-shopping/list'>
             <Button variant='link' type='button' onClick={this.searchByMostView} value="Thời trang nam">Thời trang nam</Button>
           </Link>
-          <Link to='/list'>
+          <Link to='/reactCv-shopping/list'>
             <Button variant='link' type='button' onClick={this.searchByMostView} value="Đầm nữ">Đầm nữ</Button>
           </Link>
-          <Link to='/list'>
+          <Link to='/reactCv-shopping/list'>
             <Button variant='link' type='button' onClick={this.searchByMostView} value="Sandal nữ">Sandal nữ</Button>
           </Link>
-          <Link to='/list'>
+          <Link to='/reactCv-shopping/list'>
             <Button variant='link' type='button' onClick={this.searchByMostView} value="Dép nam">Dép nam</Button>
           </Link>
         </div>

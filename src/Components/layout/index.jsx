@@ -17,7 +17,7 @@ class Layout extends React.Component {
             <div>
                 <Header />
                 <section className='container'>
-                {status == 'Start Loading...' && <img style={{ width: '200px' }} src='/assets/images/tploading.gif' />}
+                {status == 'Start Loading...' && <img style={{ width: '200px' }} src='https://raw.githubusercontent.com/thanhptse27997/reactCv-shopping/gh-pages/tploading.gif' />}
                 {this.props.children}
                 </section>
                 <Footer />
