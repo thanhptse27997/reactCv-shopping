@@ -17,11 +17,11 @@
             }
             .btn-add{
                 top: 50%;
-                left: 25%;
+                right: 25%;
             }
             .btn-go{
                 top: 50%;
-                right: 25%;
+                left: 25%;
             }
         }
     }
@@ -47,14 +47,14 @@
         }
     }
     .btn-add{
-       left: -100px;
+       right: -100px;
        &::before{
             font-family: 'Font Awesome 5 Pro';
             content: '\f07a';
        }
     }
     .btn-go{
-        right: -100px;
+        left: -100px;
         &::before{
             font-family: 'Font Awesome 5 Pro';
             content: '\f35d';
