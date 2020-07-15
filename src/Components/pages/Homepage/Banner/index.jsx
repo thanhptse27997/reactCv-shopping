@@ -12,7 +12,7 @@ class Banner extends React.Component {
                 {this.props.banner.map((item, index) =>
                     <Carousel.Item key={index}>
                         {item.title === 'HV_Motorbike_0307_3107' ?
-                            <Link to='/thanhptse-Cv/porfolio/eventbanner'>
+                            <Link to='/reactCv-shopping/eventbanner'>
                                 <Listbanner itemBanner={item} index={index} key={index} />
                             </Link>
                             : <Listbanner itemBanner={item} index={index} key={index} />

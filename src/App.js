@@ -14,10 +14,10 @@ class App extends React.Component{
       <Router>
         <Layout>
           <Switch>
-            <Route exact path ='/' component={Homepage} />
-            <Route exact path ='/list' component={Listpage} />
+            <Route exact path ='/reactCv-shopping/' component={Homepage} />
+            <Route exact path ='/reactCv-shopping/list' component={Listpage} />
             <Route exact path ='/detail' component={Detailpage} />
-            <Route exact path ='/finishOrder' component={Finishorder} />
+            <Route exact path ='/reactCv-shopping/finishOrder' component={Finishorder} />
           </Switch>
         </Layout>
       </Router>
