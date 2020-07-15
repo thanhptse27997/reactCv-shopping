@@ -49,15 +49,15 @@
     .btn-add{
        left: -100px;
        &::before{
-           font-family: 'Font Awesome 5 Pro';
-           content: '\f35d';
+            font-family: 'Font Awesome 5 Pro';
+            content: '\f07a';
        }
     }
     .btn-go{
         right: -100px;
         &::before{
             font-family: 'Font Awesome 5 Pro';
-            content: '\f07a';
+            content: '\f35d';
         }
     }
 

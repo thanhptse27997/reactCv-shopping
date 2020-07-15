@@ -39,18 +39,22 @@ class Productcard extends React.Component {
         return (
             <div className='product'>
                 <div className='img-product'>
-                    <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`}>
+                    
                         <img src={product.img_url} />
+                
+                    
+                    <button className='btn-add' onClick={() => this.handleAddToCart(index)}>add to </button>
+                   <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`}>
+
+                    <button className='btn-go'>details</button>
                     </Link>
-                    <button className='btn-add'>add to </button>
-                <button className='btn-go'>details</button>
                 </div>
                 <div className='info-product'>
                     <span className='star-product' >
                         {this.showRating(product.percent_star)}
                     </span>
                     <p>{product.name}</p>
-                    <p style={{ color: 'red' }}>{product.price.toLocaleString()}</p>
+                    <p style={{ color: 'red' }}>{product.price.toLocaleString()}đ </p>
                     {/* <Button variant='outline-info' style={{ fontSize: '12px' }} onClick={() => this.handleAddToCart(index)}>add to cart</Button> */}
                 </div>
 
