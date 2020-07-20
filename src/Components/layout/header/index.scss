@@ -123,6 +123,7 @@ header{
             transition: all 0.3s;
             position: absolute;
             width: 100%;
+            z-index: 1000;
             // bottom: 1px;
         }
     }
