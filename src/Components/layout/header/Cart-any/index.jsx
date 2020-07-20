@@ -20,19 +20,19 @@ class CartAny extends React.Component {
         this.props.deleteProduct(index, priceIndex, quantity)
     }
     render() {
-        const { cart, totalPriceOfProduct } = this.props
+        const { totalPriceOfProduct } = this.props
         let totalPriceOfCart = totalPriceOfProduct.reduce((price, number) => {
             return price += number
         }, 0)
         return (
             <div className='cart-any'>
-                 <div className='list-cart-any' style={this.props.cart.length !=0? {display : 'block'} : {display :'none'}}>
+                 <div className='list-cart-any' style={this.props.cart.length !==0? {display : 'block'} : {display :'none'}}>
                     <table>
                         {this.props.cart.map((item, index) => (
                             <tbody key={index}>
                                 <tr className='tr-row-1'>
                                     <td><p style={{ paddingTop: '30px' }}> {item.name}</p></td>
-                                    <td><Button variant='outline-danger' onClick={() => this.handleDelete(index)} style={{ fontSize: '12px' }}>Delete</Button> </td>
+                                    <td><Button variant='outline-danger' onClick={() => this.handleDelete(index)} style={{ fontSize: '12px' }}>X</Button> </td>
                                 </tr>
                                 <tr className='tr-row-2'>
                                     <td> <ProductOfCart product={item} index={index} /></td>
@@ -41,18 +41,22 @@ class CartAny extends React.Component {
                                     <td> = </td>
                                     <td className='price'> <p>{totalPriceOfProduct[index].toLocaleString()}đ</p> </td>
                                 </tr>
+                                <tr className='tr-row-3'>
+                                    <td>-----------------------------------------</td>
+                                </tr>
                             </tbody>
+                          
                         ))}
                     </table>
                     <hr />
                     <div>
                         <p style={{ color: 'red' }}>Total : {totalPriceOfCart.toLocaleString()}đ</p>
-                        <Button onClick={this.handleOrderSuccess} variant='outline-success' style={{ fontSize: '12px' }}>Order Now</Button>
+                        <Button onClick={this.handleOrderSuccess}  style={{ fontSize: '12px' }}>Order Now</Button>
                     </div>
                 </div>
 
                 {/* note when cart empty */}
-                <p style={this.props.cart.length !=0? {display : 'none'} : {display : 'block'}}>Giỏ hàng chưa có sản phẩm</p>
+                <p style={this.props.cart.length !==0? {display : 'none'} : {display : 'block'}}>Giỏ hàng chưa có sản phẩm</p>
             </div>
         )
     }

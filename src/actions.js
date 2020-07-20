@@ -44,9 +44,9 @@ export const getProductFail = errMsg =>({
 
 // ----- get product start <=> fetch first //
 export const GET_PRODUCTS_START = 'GET_PRODUCTS_START';
-export const getProductsStart = (isNewSearch) => ({
+export const getProductsStart = (isNewSearch , isNextPage) => ({
     type: GET_PRODUCTS_START,
-    isNewSearch
+    isNewSearch , isNextPage
 })
 
 // ----- end ----- //
@@ -165,21 +165,21 @@ export const getEventBanner = eventBanner =>({
 // ----- end ----- //
 
 // ----- action fetch detail banner home page ----- //
-export const getEvent = ()=>{
-    return dispatch =>{
-        fetch('https://cors-anywhere.herokuapp.com/https://mapi.sendo.vn/mob/event/deal-soc-xe-may')
-        // fetch('https://cors-anywhere.herokuapp.com/https://mapi.sendo.vn/mob/event/${campaign_id}')
+// export const getEvent = ()=>{
+//     return dispatch =>{
+//         fetch('https://cors-anywhere.herokuapp.com/https://mapi.sendo.vn/mob/event/deal-soc-xe-may')
+//         // fetch('https://cors-anywhere.herokuapp.com/https://mapi.sendo.vn/mob/event/${campaign_id}')
      
-            .then(res => res.json())
-            .then(json =>{
-                dispatch(getEventBanner(json.product))
-            })
-            .catch(err => {
-                console.error(err)
-                dispatch(getProductsFail('rớt mạng rồi nè'))
-            })
-    }
-}
+//             .then(res => res.json())
+//             .then(json =>{
+//                 dispatch(getEventBanner(json.product))
+//             })
+//             .catch(err => {
+//                 console.error(err)
+//                 dispatch(getProductsFail('rớt mạng rồi nè'))
+//             })
+//     }
+// }
 // ----- end ----- //
 
 
@@ -191,8 +191,6 @@ export const getHomeApi = () => {
             .then(json => {
                 //dispath
                 dispatch(getBanner(json[0].data.list))
-                console.log(json[0].data.list)
-                console.log(json[0].type)
             })
             .catch(err => {
                 console.error(err)
@@ -203,9 +201,9 @@ export const getHomeApi = () => {
 // ----- end ----- //
 
 // ----- action get product for website ------ //
-export const getProducts = (query, page = 1, isNewSearch  = false , isFilter = false) => {
+export const getProducts = (query, page = 1, isNewSearch  = false , isNextPage = false , isFilter = false) => {
     return dispatch => {
-        dispatch(getProductsStart(isNewSearch));
+        dispatch(getProductsStart(isNewSearch ,isNextPage));
         
         // fetch(makeProductsApi(page, query))
         fetch(makeProductsApi(page , query))
@@ -233,7 +231,7 @@ export const getDetailProduct = (id) => {
             .then(json => {
                 let x = Array.isArray(json)
                 console.log(x)
-                if ( x == false){
+                if ( x === false){
                     dispatch(getProduct(json))
                 }else{
                     dispatch(getProductFail('Sorry about this problem but the product you want to buy can not found...'))

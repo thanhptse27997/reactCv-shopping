@@ -4,12 +4,13 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getDetailProduct, addToCart_Detail, getIndexImage } from '../../../actions';
 import DetailImages from './DetailImages';
-import { Button, Row, Col, Container } from 'react-bootstrap'
+import { Button, Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faChevronRight, faStar , faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
+import { faChevronLeft, faChevronRight, faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import { IMAGE_URL } from '../../../apis'
 import { Link } from 'react-router-dom'
-class Detailpage extends React.Component{
+import './index.scss'
+class Detailpage extends React.Component {
     componentDidMount() {
         const parsed = queryString.parse(window.location.search)
         const id = parsed.id
@@ -18,12 +19,12 @@ class Detailpage extends React.Component{
     }
 
     handleAddToCart_Detail = () => {
-        this.props.addToCart_Detail(this.props.product)
+        this.props.addToCart_Detail(this.props.product);
     }
     previousImage = () => {
         let { product, indexImage } = this.props
         console.log(indexImage - 1)
-        this.props.getIndexImage(indexImage - 1 == -1 ? indexImage = product.images.length - 1 : indexImage - 1)
+        this.props.getIndexImage(indexImage - 1 === -1 ? indexImage = product.images.length - 1 : indexImage - 1)
     }
     nextImage = () => {
         let { product, indexImage } = this.props
@@ -36,12 +37,12 @@ class Detailpage extends React.Component{
         for (let i = 1; i <= rating; i++) {
             result.push(<FontAwesomeIcon icon={faStar} className='icon-star-detail' key={Math.random()} />)
         }
-        for(let z = 5-rating ; z <= 5-rating ; z++){
-            if(z < Math.round(z)){
+        for (let z = 5 - rating; z <= 5 - rating; z++) {
+            if (z < Math.round(z)) {
                 result.push(<FontAwesomeIcon icon={faStar} key={Math.random()} />)
             }
-            if(z > Math.round(z)){
-                
+            if (z > Math.round(z)) {
+
                 result.push(<FontAwesomeIcon icon={faStarHalfAlt} className='icon-star-detail' key={Math.random()} />)
             }
         }
@@ -50,53 +51,70 @@ class Detailpage extends React.Component{
         }
         return result
     }
-    render(){
-        let {product , indexImage , errMsg , status} = this.props
-        return(
-            <Container className='container-normal'>
-            {status == 'Start Loading...' && <img style={{ width: '200px' }} src='/tploading.gif' />}
-            {product ? <Row className='detail-page' >
-                <Col md={8}>
-                    <div className='firstImage'>
-                        <button className='previousImg' onClick={this.previousImage}><FontAwesomeIcon icon={faChevronLeft} /></button>
-                        <button className='nextImg' onClick={this.nextImage}><FontAwesomeIcon icon={faChevronRight} /></button>
-                        <img src={IMAGE_URL + product.images[indexImage]}></img>
-                    </div>
-                    <div>
-                        {product.images.map((item, index) =>
-                            <DetailImages item={item} product={product} index={index} key={index} />
-                        )}
-                    </div>
-                </Col>
-                <Col md={4}>
-                    <div className='infoproduct'>
-                        <p> {this.showRatingDetail(product.rating_info.percent_star)}</p>
-                        <p>{product.name}</p>
-                        <p style={{ color: 'red' }}>{product.price.toLocaleString()}</p>
-                        <Button variant='outline-info' id='btn-addtocart' onClick={() => this.handleAddToCart_Detail()}>add to cart</Button>
+    handleZoomImg = () => {
+        const showImgTarget = document.querySelector('.show-img-target')
+        const btnTarget = document.querySelector('.btn-close')
+        btnTarget.style.transform = 'translateX(235px) translateY(30px) scale(1)'
+        showImgTarget.style.transform = 'translateX(21%) translateY(-25%) scale(1)'
+        
+    }
+    handleOffZoomImg = () => {
+        
+        const btnTarget = document.querySelector('.btn-close')
+        const showImgTarget = document.querySelector('.show-img-target')
+        showImgTarget.style.transform = 'translateX(21%) translateY(-25%) scale(0)'
+        btnTarget.style.transform = 'translateX(235px) translateY(30px) scale(0)'
 
-                    </div>
-                </Col>
-            </Row>
-                : <div>
-                    <p style={{ color: 'red' }}>{errMsg}</p>
-                    <Link to='/thanhptse-Cv/porfolio/list'>Tiếp tục mua sắm nào</Link>
+    }
+    render() {
+        let { product, indexImage, status } = this.props
+        return (
+            <div className='container-detail-page'>
+                {status === 'Start Loading...' && <img style={{ width: '200px' }} src='/tploading.gif' alt='loading...' />}
+                {product && <Row className='row-detail-page' >
+                    <Col md={6}>
+                        <div className='firstImage'>
+                            <button className='previousImg' onClick={this.previousImage}><FontAwesomeIcon icon={faChevronLeft} /></button>
+                            <button className='nextImg' onClick={this.nextImage}><FontAwesomeIcon icon={faChevronRight} /></button>
+                            <img onClick={this.handleZoomImg} className='img-target' src={IMAGE_URL + product.images[indexImage]} alt={product.name}></img>
+                            <div className='show-img-target'>
+                                <img src={IMAGE_URL + product.images[indexImage]} alt={product.name}></img>
+                                <button className='btn-close' onClick={this.handleOffZoomImg}>X</button>
+                            </div>
+
+                        </div>
+                        <div>
+                            {product.images.map((item, index) =>
+                                <DetailImages item={item} product={product} index={index} key={index} />
+                            )}
+                        </div>
+                    </Col>
+                    <Col md={6}>
+                        <div className='infoproduct'>
+                            <p className='icon-star'> {this.showRatingDetail(product.rating_info.percent_star)}</p>
+                            <p>{product.name}</p>
+                            <p style={{ color: 'red' }}>{product.price.toLocaleString()}</p>
+                            <Button variant='outline-info' id='btn-addtocart' onClick={() => this.handleAddToCart_Detail()}>add to cart</Button>
+
+                        </div>
+                    </Col>
+                </Row>
+                }
+                <div className='back-to-list'>
+                    <Link to='reactCv-shopping/list'>Tiếp tục mua sắm nào</Link>
                 </div>
-            }
-
-        </Container>
+            </div>
         )
     }
 }
 
 Detailpage.defaultProps = {
     product: undefined,
-    id: '',
 
 }
 const mapStateToProps = state => ({
     product: state.product,
-    index: state.index,
+    // index: state.index,
     id: state.id,
     cart: state.cart,
     loginStatus: state.loginStatus,

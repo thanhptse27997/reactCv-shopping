@@ -4,6 +4,7 @@ import { IMAGE_URL } from '../../../../apis'
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {getIndexImage} from '../../../../actions'
+import './index.scss'
 class DetailImages extends React.Component {
 
     render() {
@@ -14,8 +15,8 @@ class DetailImages extends React.Component {
 
         }
         return (
-            <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`}>
-                <img onClick={() => getImage(index)} style={{ width: '50px' }} src={IMAGE_URL + product.images[index]} />
+            <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`} className='img-detail'>
+                <img onClick={() => getImage(index)} src={IMAGE_URL + product.images[index]} alt={product.name} />
             </Link>
 
         )

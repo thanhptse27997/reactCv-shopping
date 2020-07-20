@@ -71,11 +71,14 @@ header{
             outline: none;
         }
         input{
-            height: 100%;
+            min-height: 50px;
             width : 100%;
             padding: 0 15px;
+            border: none;
+            border-radius: 4px;
             &:focus,&:hover{
                 outline: none;
+                outline-offset: 0px;
                 a.btn-submit >button::before{
                     outline : black;
                 }
@@ -86,11 +89,12 @@ header{
             position: absolute;
             right: 0;
             top: 0;
+
             button{
-                border-width: 1px 1px 1px 0 ;
-                border-color: rgba(0, 0, 0, 0.486);
                 font-size: 0;
                 padding: 0;
+                border: none;
+                border-radius: 4px;
                 &:hover{
                     &::before{
                         color: white;
@@ -102,9 +106,10 @@ header{
                     display: inline-block;
                     content : '\f002';
                     font-size: 20px;
-                    padding: 9px 15px;
+                    padding: 10px 15px;
                     background: white;
                     transition: all 0.3s;
+                    border-radius: 4px;
                 }
             }
 
@@ -116,7 +121,7 @@ header{
         padding: 20px 0 0;
         display: flex;
         justify-content: center;
-        align-items: flex-end;
+        align-items: flex-start;
         position : relative;
         a.link-logo-cart{
             display: flex;
@@ -163,9 +168,7 @@ header{
 
     // ===== famous query ===== //
     .famous-query{
-        max-width: 915px;
-        margin: 0 auto;
-        padding: 0 15px;
+        // padding: 0 15px;
         a {
             display: inline-block;
             margin: 10px 0;

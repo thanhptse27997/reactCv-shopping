@@ -17,7 +17,7 @@ import {
     GET_INDEX_IMAGE,
     GET_PRODUCT_FAIL,
     GET_BANNER,
-    GET_EVENT_BANNER
+    GET_EVENT_BANNER,
 } from './actions';
 
 const initialState = {
@@ -46,9 +46,9 @@ const initialState = {
     value: '',
     isFilter: false,
     indexImage: 0,
-    banner :[],
-    productBanner : undefined,
-    productEventBanner : []
+    banner: [],
+    productBanner: undefined,
+    productEventBanner: [],
 
 
 
@@ -67,7 +67,7 @@ const reducer = (state = initialState, action) => {
                     case 'highToLow': {
                         return b.price - a.price
                     }
-
+                    default : return newPBP   
                 }
             })
             return { ...state, value: action.value }
@@ -79,7 +79,7 @@ const reducer = (state = initialState, action) => {
             return { ...state, product: action.product, image: action.image }
         }
         case GET_PRODUCTS_START: {
-            return { ...state, products: action.isNewSearch ? [] : state.products, status: 'Start Loading...', value: action.isNewSearch ? '' : state.value }
+            return { ...state, products: action.isNewSearch || action.isNextPage ? [] : state.products, status: 'Start Loading...', value: action.isNewSearch || action.isNextPage ? '' : state.value }
         }
         case GET_MIN_PRICE: {
             return { ...state, minPrice: action.minPrice }
@@ -97,9 +97,9 @@ const reducer = (state = initialState, action) => {
                 return parseInt(product.price, 10) > minPrice
             })
             return {
-                ...state, products: action.isFilter ? newProductsSFilter : newProducts.filter(product => product.percent_star != 0).sort((a,b)=>{
-                    if(a.percent_star < b.percent_star)
-                    return -1
+                ...state, products: action.isFilter ? newProductsSFilter : newProducts.filter(product => product.percent_star > 0.5).sort((a, b) => {
+                    if (a.percent_star < b.percent_star)
+                        return -1
                     else return 0
                 })
                 , status: 'Success', page: action.page, errMsg: '', query: action.query, isFilter: action.isFilter
@@ -114,53 +114,66 @@ const reducer = (state = initialState, action) => {
             return { ...state, product: undefined, status: 'Fail', errMsg: action.errMsg }
         }
         case ADD_TO_CART: {
-            let { cart, products, product, totalPriceOfProduct, quantityProduct } = state
-            const selected_Product = products[action.index]
+            let { cart, products, totalPriceOfProduct, quantityProduct, indexGlobalProduct } = state
+            const selectProduct = products[action.index]
+            console.log(selectProduct)
+            cart.push(selectProduct)
+            quantityProduct.push(action.quantity)
+            totalPriceOfProduct.push(selectProduct.price)
+            for(let i = 0 ; i < cart.length -1 ; i++){
+                if( cart[i].id === selectProduct.id){
+                    cart.splice(cart.length-1,1)
+                    quantityProduct[i] = quantityProduct[i] +1
+                    quantityProduct.splice(quantityProduct.length-1,1)
+                    totalPriceOfProduct[i] += totalPriceOfProduct[totalPriceOfProduct.length -1]
+                    totalPriceOfProduct.splice(totalPriceOfProduct.length-1,1)
 
-
-            if (cart.findIndex(x => x.id === selected_Product.id) >= 0) {
-                quantityProduct[cart.indexOf(selected_Product)] += action.quantity
-                totalPriceOfProduct[cart.indexOf(selected_Product)] += selected_Product.price
+    
+                }
             }
-            else {
-                cart.push(selected_Product)
-                totalPriceOfProduct.push(selected_Product.price)
-                quantityProduct.push(action.index = action.quantity)
-            }
 
-            return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct] }
+   
+            return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct], indexGlobalProduct: [...indexGlobalProduct] }
 
         }
 
         case ADD_TO_CART_DETAIL: {
             const { cart, product, totalPriceOfProduct, quantityProduct } = state
             cart.push(product)
-            totalPriceOfProduct.push(product.price)
             quantityProduct.push(action.quantity)
+            totalPriceOfProduct.push(product.price)
+            for(let i = 0 ; i < cart.length -1 ; i++){
+                if( cart[i].id === product.id){
+                    cart.splice(cart.length-1,1)
+                    quantityProduct[i] = quantityProduct[i] +1
+                    quantityProduct.splice(quantityProduct.length-1,1)
+                    totalPriceOfProduct[i] += totalPriceOfProduct[totalPriceOfProduct.length -1]
+                    totalPriceOfProduct.splice(totalPriceOfProduct.length-1,1)
+
+    
+                }
+            }
             return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct] }
         }
-
         case GET_PRICE_PRODUCT: {
             const { totalPriceOfProduct, quantityProduct } = state
             totalPriceOfProduct[action.index] = action.priceIndex
             quantityProduct[action.index] = action.quantity++
-
-
             return { ...state, totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct] }
         }
 
         case DELETE_PRODUCT: {
-            const { cart, totalPriceOfProduct, quantityProduct } = state
+            const { cart, totalPriceOfProduct, quantityProduct, indexGlobalProduct } = state
             let i = action.index
             cart.splice(i, 1)
             totalPriceOfProduct.splice(i, 1)
             quantityProduct.splice(i, 1)
-            return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct] }
+            indexGlobalProduct.splice(i, 1)
+            return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct], indexGlobalProduct: [...indexGlobalProduct] }
         }
         case GET_INDEX_IMAGE: {
             return { ...state, indexImage: action.indexImage }
         }
-
         case LOGIN_START: {
             return { ...state, auth: { isLogged: false, message: '' } }
         }
@@ -174,11 +187,11 @@ const reducer = (state = initialState, action) => {
             return { ...state, auth: { isLogged: false, message: 'logout success' }, cart: [], totalPriceOfProduct: [], quantityProduct: [], loginStatus: false }
         }
 
-        case GET_BANNER :{
-            return {...state , banner : action.banner }
+        case GET_BANNER: {
+            return { ...state, banner: action.banner }
         }
-        case GET_EVENT_BANNER:{
-            return {...state , productEventBanner : action.eventBanner}
+        case GET_EVENT_BANNER: {
+            return { ...state, productEventBanner: action.eventBanner }
         }
         default: return state;
     }

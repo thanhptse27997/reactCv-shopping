@@ -2,8 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import { getProducts, addToCart, getProduct } from '../../actions'
-import { Button } from 'react-bootstrap'
+import { getProducts, addToCart, getDetailProduct } from '../../actions'
 import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import './index.scss'
@@ -11,7 +10,7 @@ import './index.scss'
 
 
 class Productcard extends React.Component {
-    handleAddToCart = index => {
+    handleAddToCart = (index) => {
         this.props.addToCart(index)
     }
     showRating = rating => {
@@ -39,7 +38,7 @@ class Productcard extends React.Component {
         return (
             <div className='product'>
                 <div className='img-product'>
-                    <img src={product.img_url} />
+                    <img src={product.img_url} alt={product.name} />
                     <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`}>
                         <button className='btn-go'>details</button>
                     </Link>
@@ -49,9 +48,8 @@ class Productcard extends React.Component {
                     <span className='star-product' >
                         {this.showRating(product.percent_star)}
                     </span>
-                    <p>{product.name}</p>
-                    <p style={{ color: 'red' }}>{product.price.toLocaleString()}đ </p>
-                    {/* <Button variant='outline-info' style={{ fontSize: '12px' }} onClick={() => this.handleAddToCart(index)}>add to cart</Button> */}
+                    <p className='name-product'>{product.name.slice(0, 42)}{product.name.length < 42? '' : '...'}</p>
+                    <p className='price-product' style={{ color: 'red' }}>{product.price.toLocaleString()}đ </p>
                 </div>
 
 
@@ -69,7 +67,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators({ getProducts, addToCart, getProduct }, dispatch)
+    ...bindActionCreators({ getProducts, addToCart, getDetailProduct }, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Productcard);

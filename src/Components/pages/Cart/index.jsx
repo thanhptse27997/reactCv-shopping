@@ -20,7 +20,7 @@ class Cart extends React.Component {
         this.props.deleteProduct(index, priceIndex, quantity)
     }
     render() {
-        const { cart, totalPriceOfProduct } = this.props
+        const { totalPriceOfProduct } = this.props
         let totalPriceOfCart = totalPriceOfProduct.reduce((price, number) => {
             return price += number
         }, 0)

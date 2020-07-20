@@ -10,7 +10,7 @@ class ProductOfCart extends React.Component {
             <div className='cart_image'>
                 <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`}>
                     <div>
-                        <img src={product.img_url || IMAGE_URL + product.images[0] } />
+                        <img src={product.img_url || IMAGE_URL + product.images[0]} alt={product.name}  />
                     </div>
                 </Link>
             </div>
