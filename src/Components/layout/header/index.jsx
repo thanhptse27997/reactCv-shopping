@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { getProducts, getHomeApi } from '../../../actions'
+import { getProducts, getHomeApi, historyQuery } from '../../../actions'
 import { Button } from 'react-bootstrap'
 import CartAny from './Cart-any'
+import HistoryQuery from './HistoryQuery'
 import './index.scss'
 class Header extends React.Component {
   // state = { query: '' }
@@ -16,8 +17,20 @@ class Header extends React.Component {
   }
   handleSearch = () => {
     this.props.getProducts(this.state.query, 1, true)
+    this.props.historyQuery(this.state.query)
+  }
+  handleShowHistoryQuery = () =>{
+    const inputTarget = document.querySelector('.history-query')
+    inputTarget.style.opacity = '1'
+    inputTarget.style.transform = 'scale(1)'
+  }
+  handleCancel = ()=>{
+    const inputTarget = document.querySelector('.history-query')
+    inputTarget.style.opacity = '0'
+    inputTarget.style.transform = 'scale(0)'
   }
   render() {
+    
     return (
       <header className='header'>
         {/* =====  headline =====  */}
@@ -50,10 +63,12 @@ class Header extends React.Component {
           </div>
           <div className='form-search suggest'>
             <form onSubmit={() => <Link to='/reactCv-shopping/list'>{this.handleSearch()}</Link>}>
-              <input type='text' placeholder=' Tìm kiếm ' onChange={this.handleChange} query={this.props.query}></input>
+              <input className='input-search' type='text' placeholder=' Tìm kiếm ' onChange={this.handleChange} query={this.props.query}></input>
               <Link to='/reactCv-shopping/list' className='btn-submit'> <button onClick={this.handleSearch}>Search</button></Link>
+              <div className='history-query' >
+                <HistoryQuery />
+              </div>
             </form>
-
             {/* ===== famous query ===== */}
             <div className='famous-query'>
               <Link to='/reactCv-shopping/list'>
@@ -100,11 +115,12 @@ const mapsStateToProps = state => ({
   cart: state.cart,
   minPrice: state.minPrice,
   maxPrice: state.maxPrice,
-  productBanner: state.productBanner
-
+  productBanner: state.productBanner,
+  historyQuery: state.historyQuery,
+  isFocus : state.isFocus
 })
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators({ getProducts, getHomeApi }, dispatch)
+  ...bindActionCreators({ getProducts, getHomeApi, historyQuery }, dispatch)
 })
 export default connect(mapsStateToProps, mapDispatchToProps)(Header);

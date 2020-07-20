@@ -67,8 +67,11 @@ header{
         flex: 0 0 80%;
         max-width: 80%;
         position: relative;
-        &:focus{
-            outline: none;
+        form:focus-within{
+            .history-query{
+                opacity: 1 ;
+                transform: scale(1);
+            }
         }
         input{
             min-height: 50px;
@@ -83,13 +86,13 @@ header{
                     outline : black;
                 }
             }
+
         }
         a.btn-submit{
             display: block;
             position: absolute;
             right: 0;
             top: 0;
-
             button{
                 font-size: 0;
                 padding: 0;
@@ -112,8 +115,15 @@ header{
                     border-radius: 4px;
                 }
             }
-
-
+        }
+        .history-query{
+            opacity: 0;
+            transform: scale(0);
+            background: white;
+            transition: all 0.3s;
+            position: absolute;
+            width: 100%;
+            // bottom: 1px;
         }
     }
     .logo-cart{

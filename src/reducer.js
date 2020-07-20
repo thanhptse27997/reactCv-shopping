@@ -18,8 +18,8 @@ import {
     GET_PRODUCT_FAIL,
     GET_BANNER,
     GET_EVENT_BANNER,
+    HISTORY_QUERY,
 } from './actions';
-
 const initialState = {
     products: [
 
@@ -49,6 +49,8 @@ const initialState = {
     banner: [],
     productBanner: undefined,
     productEventBanner: [],
+    historyQuery : [],
+    isFocus : false
 
 
 
@@ -79,7 +81,7 @@ const reducer = (state = initialState, action) => {
             return { ...state, product: action.product, image: action.image }
         }
         case GET_PRODUCTS_START: {
-            return { ...state, products: action.isNewSearch || action.isNextPage ? [] : state.products, status: 'Start Loading...', value: action.isNewSearch || action.isNextPage ? '' : state.value }
+            return { ...state, products: action.isNewSearch || action.isNextPage ? [] : state.products, status: 'Start Loading...' , isFocus : true , value: action.isNewSearch || action.isNextPage ? '' : state.value }
         }
         case GET_MIN_PRICE: {
             return { ...state, minPrice: action.minPrice }
@@ -102,7 +104,7 @@ const reducer = (state = initialState, action) => {
                         return -1
                     else return 0
                 })
-                , status: 'Success', page: action.page, errMsg: '', query: action.query, isFilter: action.isFilter
+                , status: 'Success' , isFocus : false, page: action.page, errMsg: '', query: action.query, isFilter: action.isFilter
             }
 
         }
@@ -114,7 +116,7 @@ const reducer = (state = initialState, action) => {
             return { ...state, product: undefined, status: 'Fail', errMsg: action.errMsg }
         }
         case ADD_TO_CART: {
-            let { cart, products, totalPriceOfProduct, quantityProduct, indexGlobalProduct } = state
+            let { cart, products, totalPriceOfProduct, quantityProduct } = state
             const selectProduct = products[action.index]
             console.log(selectProduct)
             cart.push(selectProduct)
@@ -133,7 +135,7 @@ const reducer = (state = initialState, action) => {
             }
 
    
-            return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct], indexGlobalProduct: [...indexGlobalProduct] }
+            return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct]}
 
         }
 
@@ -163,13 +165,12 @@ const reducer = (state = initialState, action) => {
         }
 
         case DELETE_PRODUCT: {
-            const { cart, totalPriceOfProduct, quantityProduct, indexGlobalProduct } = state
+            const { cart, totalPriceOfProduct, quantityProduct } = state
             let i = action.index
             cart.splice(i, 1)
             totalPriceOfProduct.splice(i, 1)
             quantityProduct.splice(i, 1)
-            indexGlobalProduct.splice(i, 1)
-            return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct], indexGlobalProduct: [...indexGlobalProduct] }
+            return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct] }
         }
         case GET_INDEX_IMAGE: {
             return { ...state, indexImage: action.indexImage }
@@ -193,6 +194,17 @@ const reducer = (state = initialState, action) => {
         case GET_EVENT_BANNER: {
             return { ...state, productEventBanner: action.eventBanner }
         }
+        case HISTORY_QUERY :{
+            const {historyQuery} = state
+            historyQuery.push(action.query)
+            // Cookies.set('historyQuery' , JSON.stringify(historyQuery))
+            return {...state , historyQuery : [...historyQuery]}
+        }
+        // case LOGIN : {
+        //     const {auth} = state
+        //     Cookies.set('user' , auth)
+        //     return  {...state , auth : [...auth]}
+        //  }
         default: return state;
     }
 }

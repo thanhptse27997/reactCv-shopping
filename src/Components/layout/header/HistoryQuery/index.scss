@@ -1,0 +1,9 @@
+table{
+    width: 100%;
+    tbody tr >td{
+        transition: all 0.3s;
+        &:hover{
+            background: #189fff4b;
+        }
+    }
+}

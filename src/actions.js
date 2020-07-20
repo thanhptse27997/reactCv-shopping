@@ -164,6 +164,14 @@ export const getEventBanner = eventBanner =>({
 
 // ----- end ----- //
 
+// ----- history query ----- //
+export const HISTORY_QUERY = 'HISTORY_QUERY'
+export const historyQuery = query =>({
+    type : HISTORY_QUERY,
+    query
+})
+
+// ----- end ----- //
 // ----- action fetch detail banner home page ----- //
 // export const getEvent = ()=>{
 //     return dispatch =>{
@@ -212,7 +220,7 @@ export const getProducts = (query, page = 1, isNewSearch  = false , isNextPage =
             .then(json => {
                 //dispath
                 dispatch(getProductsSucess(json.data, page, query , isFilter))
-
+                
             })
             .catch(err => {
                 console.error(err)
