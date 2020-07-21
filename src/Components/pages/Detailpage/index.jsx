@@ -54,7 +54,7 @@ class Detailpage extends React.Component {
     handleZoomImg = () => {
         const showImgTarget = document.querySelector('.show-img-target')
         const btnTarget = document.querySelector('.btn-close')
-        btnTarget.style.transform = 'translateX(235px) translateY(100px) scale(1)'
+        btnTarget.style.transform = 'translateX(235px) translateY(75px) scale(1)'
         showImgTarget.style.transform = 'translateX(17%) translateY(-25%) scale(1)'
         
     }
@@ -63,7 +63,7 @@ class Detailpage extends React.Component {
         const btnTarget = document.querySelector('.btn-close')
         const showImgTarget = document.querySelector('.show-img-target')
         showImgTarget.style.transform = 'translateX(17%) translateY(-25%) scale(0)'
-        btnTarget.style.transform = 'translateX(235px) translateY(100px) scale(0)'
+        btnTarget.style.transform = 'translateX(235px) translateY(75px) scale(0)'
 
     }
     render() {
