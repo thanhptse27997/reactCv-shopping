@@ -8,7 +8,7 @@ class HistoryQuery extends React.Component {
     render() {
 
         return (
-            <table >
+            <table className='list-queries' >
                 <tbody>
                     {this.props.historyQuery.map((item, index) =>
                         <tr key={index}>
