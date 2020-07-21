@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/reactCv-shopping/precache-manifest.96dce9c7b870881effb95a33e05ace31.js"
+  "/reactCv-shopping/precache-manifest.925eda3c20c06abbb873ed68e1c8a49b.js"
 );
 
 self.addEventListener('message', (event) => {
