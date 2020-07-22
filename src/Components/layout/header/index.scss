@@ -67,12 +67,12 @@ header{
         flex: 0 0 80%;
         max-width: 80%;
         position: relative;
-        form:focus-within{
-            .history-query{
-                opacity: 1 ;
-                transform: scale(1);
-            }
-        }
+        // form:focus-within{
+        //     .history-query{
+        //         opacity: 1 ;
+        //         transform: scale(1);
+        //     }
+        // }
         input{
             min-height: 50px;
             width : 100%;

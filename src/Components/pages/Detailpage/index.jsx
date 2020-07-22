@@ -9,13 +9,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronLeft, faChevronRight, faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import { IMAGE_URL } from '../../../apis'
 import { Link } from 'react-router-dom'
+import { Markup } from 'interweave'
 import './index.scss'
+
+// let domparser = new DOMParser()
+// domParser.parseFromString(product.description, 'text/html')
+// DOMParser().parseFromString(product.description, 'text/html')
 class Detailpage extends React.Component {
     componentDidMount() {
         const parsed = queryString.parse(window.location.search)
         const id = parsed.id
         this.props.getDetailProduct(id)
 
+        // DOMParser().parseFromString(product.description, 'text/html')
     }
 
     handleAddToCart_Detail = () => {
@@ -56,18 +62,31 @@ class Detailpage extends React.Component {
         const btnTarget = document.querySelector('.btn-close')
         btnTarget.style.transform = 'translateX(235px) translateY(75px) scale(1)'
         showImgTarget.style.transform = 'translateX(17%) translateY(-25%) scale(1)'
-        
+
     }
     handleOffZoomImg = () => {
-        
+
         const btnTarget = document.querySelector('.btn-close')
         const showImgTarget = document.querySelector('.show-img-target')
         showImgTarget.style.transform = 'translateX(17%) translateY(-25%) scale(0)'
         btnTarget.style.transform = 'translateX(235px) translateY(75px) scale(0)'
 
     }
+    // componentdidMount(){
+    //     const {product} = this.props
+    //     const HTML = product.description
+    //     const doc = new DOMParser().parseFromString(HTML, "text/html");
+    //     const htmlDiv = doc.childNodes[0].childNodes;
+    //     this.div = Object.keys(htmlDiv).map((key, i) => {
+    //         let el = htmlDiv[key];
+    //         let contents = [<p>{el.innerHTML}</p>];
+    //         if (el.hasAttribute("but")) contents.push(<button>Comment</button>);
+    //         return <div key={i}>{contents}</div>;
+    //       });
+    // }
     render() {
         let { product, indexImage, status } = this.props
+        let bgImage
         return (
             <div className='container-detail-page'>
                 {status === 'Start Loading...' && <img style={{ width: '200px' }} src='/tploading.gif' alt='loading...' />}
@@ -97,8 +116,26 @@ class Detailpage extends React.Component {
                             <Button variant='outline-info' id='btn-addtocart' onClick={() => this.handleAddToCart_Detail()}>add to cart</Button>
 
                         </div>
+                        <div className='info-shop'>
+                            <p>{product.shop_info.shop_name}</p>
+                            <img src={product.shop_info.shop_logo} alt={product.shop_info.shop_name} />
+                            <p>{product.shop_info.phone_number}</p>
+                            <div className='reback-product-free' style={{ backgroundImage: `url(${product.customer_benefits.benefits[0].background_url})` }}>
+                                <p >{product.customer_benefits.benefits[0].text}</p>
+                               
+                            </div>
+                            <Markup content={product.customer_benefits.benefits[0].tooltip} />
+
+                        </div>
+
+                    </Col>
+                    <Col md={12} className='description' >
+                        <Markup content={product.description} />
+                        <div><p>{product.short_description}</p></div>
                     </Col>
                 </Row>
+
+
                 }
                 <div className='back-to-list'>
                     <Link to='reactCv-shopping/list'>Tiếp tục mua sắm nào</Link>

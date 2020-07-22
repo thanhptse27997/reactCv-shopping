@@ -48,10 +48,13 @@ class Productcard extends React.Component {
                     <span className='star-product' >
                         {this.showRating(product.percent_star)}
                     </span>
-                    <p className='name-product'>{product.name.slice(0, 42)}{product.name.length < 42? '' : '...'}</p>
-                    <p className='price-product' style={{ color: 'red' }}>{product.price.toLocaleString()}đ </p>
+                    <p className='name-product'>{product.name.slice(0, 42)}{product.name.length < 42 ? '' : '...'}</p>
+                    <p style={product.promotion_percent > 0 ? { display: 'block' , color : 'red' } : { display: 'none' }}>{product.final_price.toLocaleString()}đ</p>
+                    <p className='price-product' style={product.promotion_percent >0? {textDecoration : 'line-through' ,} : { color: 'red'}}>{product.price.toLocaleString()}đ </p>
                 </div>
-
+            <div className='percent-discout' style={product.promotion_percent > 0 ? {display : 'block'} : {display : 'none'}}>
+                <p> <span>Giảm</span><br />{product.promotion_percent}%</p>
+            </div>
 
             </div>
         )

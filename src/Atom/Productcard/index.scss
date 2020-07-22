@@ -9,6 +9,16 @@
     &:hover{
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.459);
     }
+    .percent-discout{
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: orange;
+        p{
+            margin: 0;
+            padding: 5px;
+        }
+    }
     .img-product{
         position: relative;
         overflow: hidden;

@@ -8,16 +8,20 @@ import CartAny from './Cart-any'
 import HistoryQuery from './HistoryQuery'
 import './index.scss'
 class Header extends React.Component {
-  // state = { query: '' }
+  state = { value: '' }
   searchByMostView = (event) => {
     this.props.getProducts(event.target.value, 1, true);
   }
   handleChange = (event) => {
-    this.setState({ ...this.state, query: event.target.value, value: event.target.value })
+    this.setState({ ...this.state, query: event.target.value , value : event.target.value})
   }
   handleSearch = () => {
+    const inputTarget = document.querySelector('.history-query')
+    inputTarget.style.opacity = '0'
+    inputTarget.style.transform = 'scale(0)'
     this.props.getProducts(this.state.query, 1, true)
     this.props.historyQuery(this.state.query)
+    this.setState({...this.state , value : ''})
   }
   handleShowHistoryQuery = () =>{
     const inputTarget = document.querySelector('.history-query')
@@ -29,6 +33,7 @@ class Header extends React.Component {
     inputTarget.style.opacity = '0'
     inputTarget.style.transform = 'scale(0)'
   }
+  
   render() {
     
     return (
@@ -62,8 +67,8 @@ class Header extends React.Component {
             <Link to='/reactCv-shopping/'><img src='assets/images/home.webp' alt='logo' /></Link>
           </div>
           <div className='form-search suggest'>
-            <form onSubmit={() => <Link to='/reactCv-shopping/list'>{this.handleSearch()}</Link>}>
-              <input className='input-search' type='text' placeholder=' Tìm kiếm ' onChange={this.handleChange} query={this.props.query}></input>
+            <form className='form-header' onSubmit={() => <Link to='/reactCv-shopping/list'>{this.handleSearch()}</Link>}>
+              <input className='input-search' type='text' placeholder=' Tìm kiếm ' onChange={this.handleChange} onClick={this.handleShowHistoryQuery} query={this.props.query} value={this.state.value}></input>
               <Link to='/reactCv-shopping/list' className='btn-submit'> <button onClick={this.handleSearch}>Search</button></Link>
               <div className='history-query' >
                 <HistoryQuery />

@@ -10,12 +10,13 @@ class Layout extends React.Component {
         this.props.getProducts(this.props.query, 1);
         this.props.getHomeApi();
     }
+
     render() {
         let { status } = this.props
         return (
             <div>
                 <Header />
-                <section className='container'>
+                <section className='container' >
                 {status === 'Start Loading...' && <img className='img-waiting'  src='https://raw.githubusercontent.com/thanhptse27997/reactCv-shopping/gh-pages/assets/images/tploading.gif' alt='loading...' />}
                 {this.props.children}
                 </section>
