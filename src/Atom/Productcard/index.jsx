@@ -53,7 +53,7 @@ class Productcard extends React.Component {
                     <p className='price-product' style={product.promotion_percent >0? {textDecoration : 'line-through' ,} : { color: 'red'}}>{product.price.toLocaleString()}đ </p>
                 </div>
             <div className='percent-discout' style={product.promotion_percent > 0 ? {display : 'block'} : {display : 'none'}}>
-                <p> <span>Giảm</span><br />{product.promotion_percent}%</p>
+                <p> <span>-</span>{product.promotion_percent}%</p>
             </div>
 
             </div>

@@ -11,22 +11,24 @@
     }
     .percent-discout{
         position: absolute;
-        top: 0;
-        right: 0;
-        background: #189eff;
+        top: 15px;
+        right: 15px;
+        background: rgba(245, 4, 4, 0.856);
         text-align: center;
         border-radius: 100%;
+        width: 40px;
+        height: 40px;
         p{
             margin: 0;
-            padding: 5px;
-            font-size : 14px;
+            padding: 11px 6px;
+            font-size : 12px;
             color: white;
         }
     }
     .img-product{
         position: relative;
         overflow: hidden;
-        margin : 20px 0;
+        margin : 15px 0;
         border-radius: 4px;
         cursor: pointer;
         img{
