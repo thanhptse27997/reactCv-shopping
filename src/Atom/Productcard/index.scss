@@ -13,10 +13,14 @@
         position: absolute;
         top: 0;
         right: 0;
-        background: orange;
+        background: #189eff;
+        text-align: center;
+        border-radius: 100%;
         p{
             margin: 0;
             padding: 5px;
+            font-size : 14px;
+            color: white;
         }
     }
     .img-product{
