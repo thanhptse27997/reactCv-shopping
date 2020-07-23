@@ -118,7 +118,7 @@ class Detailpage extends React.Component {
                         </div>
                         <div className='info-shop'>
                             <p>{product.shop_info.shop_name}</p>
-                            <img src={product.shop_info.shop_logo} alt={product.shop_info.shop_name} />
+                            <img src={product.shop_info.shop_logo} alt={product.shop_info.shop_name} style={{width : '250px'}} />
                             <p>{product.shop_info.phone_number}</p>
                             <div className='reback-product-free' style={{ backgroundImage: `url(${product.customer_benefits.benefits[0].background_url})` }}>
                                 <p >{product.customer_benefits.benefits[0].text}</p>

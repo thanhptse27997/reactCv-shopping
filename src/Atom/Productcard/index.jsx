@@ -45,8 +45,9 @@ class Productcard extends React.Component {
                     <button className='btn-add' onClick={() => this.handleAddToCart(index)}>add to </button>
                 </div>
                 <div className='info-product'>
-                    <span className='star-product' >
+                    <span className='star-product' style={product.percent_star < 0.5? {display : 'none'} : {display :'block'}} >
                         {this.showRating(product.percent_star)}
+                        
                     </span>
                     <p className='name-product'>{product.name.slice(0, 42)}{product.name.length < 42 ? '' : '...'}</p>
                     <p style={product.promotion_percent > 0 ? { display: 'block' , color : 'red' } : { display: 'none' }}>{product.final_price.toLocaleString()}đ</p>

@@ -99,7 +99,7 @@ const reducer = (state = initialState, action) => {
                 return parseInt(product.price, 10) > minPrice
             })
             return {
-                ...state, products: action.isFilter ? newProductsSFilter : newProducts.filter(product => product.percent_star > 0.5).sort((a, b) => {
+                ...state, products: action.isFilter ? newProductsSFilter : newProducts.sort((a, b) => {
                     if (a.percent_star < b.percent_star)
                         return -1
                     else return 0
