@@ -23,7 +23,8 @@ class Introduce extends React.Component {
                             <li>List page</li>
                             <li>Detail page</li>
                             <li>Cart page</li>
-                            <li>Finish order page</li>
+                            <li>Login page</li>
+                            <li>Registration page</li>
                         </ul>
                     </div>
                     <div className='functions-project'>
@@ -42,7 +43,7 @@ class Introduce extends React.Component {
                     <p>Thanks for reading.</p>
                 </div>
                 <div className='back-to-list'>
-                    <Link to='reactCv-shopping/list'>Back To List</Link>
+                    <Link to='/reactCv-shopping/list'>Back To List</Link>
                 </div>
             </div>
         )
