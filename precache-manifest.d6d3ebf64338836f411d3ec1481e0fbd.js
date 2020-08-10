@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "8bef2eec8f3578c3f117e4f566c1255c",
+    "revision": "d279f4a5712970f4b772ff0389bc50b4",
     "url": "/reactCv-shopping/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/reactCv-shopping/static/css/2.1c8fa9c2.chunk.css"
   },
   {
-    "revision": "da47578e35b87c2392c1",
-    "url": "/reactCv-shopping/static/css/main.ff70b0b6.chunk.css"
+    "revision": "493a78b710ba2692aaea",
+    "url": "/reactCv-shopping/static/css/main.4d03910d.chunk.css"
   },
   {
     "revision": "947f0bd9dfad91468260",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/reactCv-shopping/static/js/2.36766b77.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "da47578e35b87c2392c1",
+    "revision": "493a78b710ba2692aaea",
     "url": "/reactCv-shopping/static/js/main.448f5488.chunk.js"
   },
   {
