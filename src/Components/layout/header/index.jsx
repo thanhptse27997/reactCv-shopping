@@ -2,40 +2,58 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { getProducts, getHomeApi, historyQuery } from '../../../actions'
-import { Button } from 'react-bootstrap'
+import { getProducts, historyQuery, getProductsFail, logOut } from '../../../actions'
 import CartAny from './Cart-any'
 import HistoryQuery from './HistoryQuery'
 import './index.scss'
 class Header extends React.Component {
   state = { value: '' }
-  searchByMostView = (event) => {
-    this.props.getProducts(event.target.value, 1, true);
-  }
+
   handleChange = (event) => {
-    this.setState({ ...this.state, query: event.target.value , value : event.target.value})
+    this.setState({ ...this.state, query: event.target.value, value: event.target.value })
   }
   handleSearch = () => {
     const inputTarget = document.querySelector('.history-query')
     inputTarget.style.opacity = '0'
     inputTarget.style.transform = 'scale(0)'
-    this.props.getProducts(this.state.query, 1, true)
-    this.props.historyQuery(this.state.query)
-    this.setState({...this.state , value : ''})
+    if (this.state.value.length === 0) {
+      this.props.getProductsFail(this.props.errMsg, 'bạn chưa nhập sản phẩm !')
+    } else {
+      this.props.getProducts(this.state.query, 1, true)
+      this.props.historyQuery(this.state.query)
+    }
+    this.setState({ ...this.state, value: '' })
   }
-  handleShowHistoryQuery = () =>{
+  handleShowHistoryQuery = () => {
     const inputTarget = document.querySelector('.history-query')
     inputTarget.style.opacity = '1'
     inputTarget.style.transform = 'scale(1)'
   }
-  handleCancel = ()=>{
+  handleCancel = () => {
     const inputTarget = document.querySelector('.history-query')
     inputTarget.style.opacity = '0'
     inputTarget.style.transform = 'scale(0)'
   }
-  
+
+  showFormLogOut = () => {
+    const formWishLogout = document.querySelector('.form-logout')
+    formWishLogout.style.transform = 'scale(1)'
+
+    // alert('bạn có chắc chắn đăng xuất ?');
+    // this.props.logOut('user logout')
+  }
+  agreeLogOut = () => {
+    this.props.logOut('user logout')
+    const formWishLogout = document.querySelector('.form-logout')
+    formWishLogout.style.transform = 'scale(0)'
+    this.props.getProducts('' , 1)
+  }
+  cancelLogout = () => {
+    const formWishLogout = document.querySelector('.form-logout')
+    formWishLogout.style.transform = 'scale(0)'
+  }
   render() {
-    
+
     return (
       <header className='header'>
         {/* =====  headline =====  */}
@@ -47,13 +65,13 @@ class Header extends React.Component {
               </div>
               <ul className='menu'>
                 <li>
-                  <Link className='intro-project' to='/reactCv-shopping/about-us'>Giới thiệu</Link>
+                  <Link className='intro-project' to='/reactCv-shopping/introduce'>Giới thiệu</Link>
                 </li>
                 <li>
-                  <Link to='/reactCv-shopping/list'>Đăng nhập</Link>
+                  {this.props.loginStatus === false ? <Link to='/reactCv-shopping/login'>Đăng nhập</Link> : <button onClick={this.showFormLogOut}>Đăng xuất</button>}
                 </li>
                 <li>
-                  <Link to='/reactCv-shopping/registration'>Đăng kí</Link>
+                  {this.props.loginStatus === true ? <Link to='/reactCv-shopping/user' className='user-logged'>{this.props.userLogged[0].name}</Link> : <Link to='/reactCv-shopping/registration'>Đăng kí</Link>}
                 </li>
               </ul>
             </div>
@@ -69,31 +87,13 @@ class Header extends React.Component {
           <div className='form-search suggest'>
             <form className='form-header' onSubmit={() => <Link to='/reactCv-shopping/list'>{this.handleSearch()}</Link>}>
               <input className='input-search' type='text' placeholder=' Tìm kiếm ' onChange={this.handleChange} onClick={this.handleShowHistoryQuery} query={this.props.query} value={this.state.value}></input>
+              <span className='err-mess'>{this.props.errMsgTopInput}</span>
               <Link to='/reactCv-shopping/list' className='btn-submit'> <button onClick={this.handleSearch}>Search</button></Link>
               <div className='history-query' >
                 <HistoryQuery />
               </div>
             </form>
-            {/* ===== famous query ===== */}
-            <div className='famous-query'>
-              <Link to='/reactCv-shopping/list'>
-                <Button variant='link' type='button' onClick={this.searchByMostView} value="Thời trang nữ">Thời trang nữ</Button>
-              </Link>
 
-              <Link to='/reactCv-shopping/list'>
-                <Button variant='link' type='button' onClick={this.searchByMostView} value="Thời trang nam">Thời trang nam</Button>
-              </Link>
-              <Link to='/reactCv-shopping/list'>
-                <Button variant='link' type='button' onClick={this.searchByMostView} value="Đầm nữ">Đầm nữ</Button>
-              </Link>
-              <Link to='/reactCv-shopping/list'>
-                <Button variant='link' type='button' onClick={this.searchByMostView} value="Sandal nữ">Sandal nữ</Button>
-              </Link>
-              <Link to='/reactCv-shopping/list'>
-                <Button variant='link' type='button' onClick={this.searchByMostView} value="Dép nam">Dép nam</Button>
-              </Link>
-            </div>
-            {/* ===== end ===== */}
           </div>
 
           <div className='logo-cart'>
@@ -107,7 +107,18 @@ class Header extends React.Component {
         </div>
         {/* ===== end ===== */}
 
+        {/* ===== form logout ===== */}
+        <div className='form-logout'>
+          <div className='detail-form'>
+            <p>Bạn có chắc chắn đăng xuất ?</p>
+            <div className='btns-form-logout'>
+            <Link to='/reactCv-shopping'><button className='agree-logout' onClick={this.agreeLogOut}>Đồng ý</button></Link>
+              <button className='denied-logout' onClick={this.cancelLogout}>Hủy bỏ</button>
+            </div>
+          </div>
+        </div>
 
+        {/* ===== end ===== */}
 
 
       </header>
@@ -122,10 +133,15 @@ const mapsStateToProps = state => ({
   maxPrice: state.maxPrice,
   productBanner: state.productBanner,
   historyQuery: state.historyQuery,
-  isFocus : state.isFocus
+  isFocus: state.isFocus,
+  errMsgTopInput: state.errMsgTopInput,
+  errMsg: state.errMsg,
+  loginStatus: state.loginStatus,
+  userLogged: state.userLogged,
+  messageLogin : state.messageLogin
 })
 
 const mapDispatchToProps = dispatch => ({
-  ...bindActionCreators({ getProducts, getHomeApi, historyQuery }, dispatch)
+  ...bindActionCreators({ getProducts, historyQuery, getProductsFail, logOut }, dispatch)
 })
 export default connect(mapsStateToProps, mapDispatchToProps)(Header);

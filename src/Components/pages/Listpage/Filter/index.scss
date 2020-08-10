@@ -1,0 +1,121 @@
+.the-filter{
+    padding : 15px;
+    margin : 15px 0;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    input,
+    button{
+        border: 1px solid #bababa;
+        &:focus{
+            outline: none;
+        }
+    }
+
+    form.search-product-by-price{
+        flex: 0 0 70%;
+        max-width: 70%;
+        display: flex;
+        div{
+            margin-right: 10px;
+        }
+        div.input-filter{
+            flex: 0 0 calc(70% - 80px);
+            max-width: calc(70% - 80px);
+            input{
+                width: 100%;
+                padding: 15px;
+                border-width: 1px;
+                border-radius: 4px;
+            }
+        }
+        div.input-min-price,
+        div.input-max-price{
+            flex: 0 0 calc(15% - 10px);
+            max-width: calc(15% - 10px);
+            input{
+                width: 100%;
+                border-width: 1px;
+                height: 100%;
+                padding: 15px;
+                border-radius: 4px;
+            }
+        }
+        div.btn-submit-form{
+            flex: 0 0 60px;
+            max-width: 60px;
+            font-size: 0;
+            button{
+                font-size: 0;
+                height: 100%;
+                width: 100%;
+                border-radius: 4px;
+                transition: all 0.3s;
+                &:hover{
+                    background: #189eff;
+                    color: white;
+                }
+                &::before{
+                    content: '\f002';
+                    font-family: 'Font Awesome 5 Pro';
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+    .select-filter{
+        flex: 0 0 30%;
+        max-width: 30%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        div{
+            min-width: 170px;
+            &::after{
+                position: absolute;
+                content: '\f0de';
+                font-family: 'Font Awesome 5 Free';
+                font-weight: 700;
+                top: 48%;
+                width: 10px;
+                height: 12px;
+                display: flex;
+                align-items: center;
+                right: 20px;
+                transition: all 0.3s;
+            }
+            &:hover{
+                &::after{
+                    top: 38%;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+        select{
+            padding: 15px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            border-radius: 4px;
+            border: 1px solid #bababa;
+            width: 100%;
+            &:focus{
+                outline: none;
+            }
+            >option{
+                padding-top: 20px;
+            }
+        }
+    }
+    .err-mess-filter{
+        margin: 10px 0 15px;
+        padding-left : 15px;
+        p{
+            margin: 0;
+            color: red;
+            font-style: italic;
+            font-weight: 500;
+        }
+    }
+}

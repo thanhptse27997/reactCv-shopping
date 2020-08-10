@@ -1,27 +1,81 @@
-.banner{
-    max-width: 780px;
-    margin: 0 auto;
-    img{
-        width: 100%;
-        max-height: 305px;
-        object-fit: cover;
+.banner-category{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 50px;
+    .category-home{
+        flex: 0 0 calc( 20% - 20px);
+        max-width: calc( 20% - 20px);
+        margin-right: 20px;
     }
-    a {
-        span{
-            display: none;
+    .list-categories{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        li{
+            flex: 0 0 100%;
+            max-width: 100%;
         }
-        &.carousel-control-prev{
-            left: 15px;
-            &::before{
-                font-family: 'Font Awesome 5 Pro';
-                content :'\f060';
+        a{
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+        }
+        button{
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+            padding: 5px 0 5px 15px;
+            border-radius: 4px;
+            &:hover{
+                background: #189eff;
+                color: white;
             }
         }
-        &.carousel-control-next{
-            right: 15px;
-            &::before{
-                font-family: 'Font Awesome 5 Pro';
-                content :'\f061';
+    }
+
+    .banner{
+        flex: 0 0 80%;
+        max-width: 80%;
+        .carousel-item{
+            transition: all 0.5s;
+        }
+        img{
+            width: 100%;
+            max-height : 360px;
+            height: 100%;
+            object-fit: contain;
+        }
+        a {
+            span{
+                display: none;
+            }
+            &.carousel-control-prev,
+            &.carousel-control-next{
+                width: 50px;
+                height: 50px;
+                border-radius: 100%;
+                top: 150px;
+                background: white;
+                color: black;
+            }
+            &.carousel-control-prev{
+                left: 15px;
+
+                &::before{
+                    font-family: 'Font Awesome 5 Pro';
+                    content :'\f060';
+                }
+            }
+            &.carousel-control-next{
+                right: 15px;
+                &::before{
+                    font-family: 'Font Awesome 5 Pro';
+                    content :'\f061';
+                }
             }
         }
     }

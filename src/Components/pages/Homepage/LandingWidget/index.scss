@@ -1,0 +1,74 @@
+.block-suggest{
+    margin-bottom: 50px;
+    .title-block-suggest{
+        background: #189eff ;
+        border-radius: 4px;
+        div{
+            background: url('https://media3.scdn.vn/img3/2019/10_16/IUHU9r.png') 0px 0px / auto 100% no-repeat;
+            display: flex;
+        }
+        h4{
+            padding: 15px;
+            margin: 10px;
+            color: white;
+            text-transform: uppercase;
+            font-style: italic;
+            font-weight: 700;
+        }
+    }
+    .suggest{
+        overflow: hidden;
+        position: relative;
+        margin-top: 10px;
+        img{
+            width: 100%;
+            object-fit: contain;
+        }
+        a.link-suggest{
+            display: inline-block;
+            color: black;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            position: absolute;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.514);
+            // background: rgba(0, 0, 0, 0.616);
+            bottom: 10px;
+            transition: all 0.3s;
+            border-radius: 4px;
+            left: -100%;
+            z-index: 1000;
+            button{
+                width: 100%;
+                height: 100%;
+                border: none;
+                cursor: pointer;
+                font-weight: 500;
+                font-style: italic;
+                background: none;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        span{
+            display: block;
+            width: 100%;
+            position: absolute;
+            padding: 15px 0;
+            text-align: center;
+            bottom: 10px;
+            background: rgba(255, 255, 255, 0.884);
+            font-weight: 500;
+        }
+        &:hover{
+            a.link-suggest{
+                left: 0;
+            }
+            img,span{
+                opacity: 0.5;
+            }
+        }
+    }
+}

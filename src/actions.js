@@ -1,14 +1,22 @@
-import { makeProductsApi, makeProductDetailApi, LOGIN_API, HOME_API } from "./apis";
+import { makeProductsApi, makeProductDetailApi, LOGIN_API, HOME_API, makeShopDetailApi,RECOMMEND } from "./apis";
 
 // ---- Filter ----- //
 export const FILTER = 'FILTER';
-export const filterPrice =(value , isFilter) => ({
+export const filterProduct = (value, isSorting = true) => ({
     type: FILTER,
-    value , isFilter
+    value, isSorting
 })
 
 // ----- end ----- //
+// ----- unfilter ----- //
+// export const UNFILTER = 'UNFILTER';
+// export const Unfilter = (value , isSorting = false) =>({
+//     type : UNFILTER,
+//     value , isSorting
+// })
 
+
+// ---- end ---- //
 // ----- get product <=> detail page  ----- //
 export const GET_PRODUCT = 'GET_PRODUCT';
 export const getProduct = (product, errMsg) => ({
@@ -21,22 +29,22 @@ export const getProduct = (product, errMsg) => ({
 
 // ----- product list ----- //
 export const GET_PRODUCTS_SUCCESS = 'GET_PRODUCTS_SUCCESS';
-export const getProductsSucess = (products, page, query ,isFilter) => ({
+export const getProductsSucess = (products, page, query, isFilter) => ({
     type: GET_PRODUCTS_SUCCESS,
-    products, page, query ,isFilter
+    products, page, query, isFilter
 })
 // ----- end ---- //
 
 // ------ get failed ----- //
 export const GET_PRODUCTS_FAIL = 'GET_PRODUCTS_FAIL';
-export const getProductsFail = errMsg => ({
+export const getProductsFail = (errMsg, errMsgTopInput) => ({
     type: GET_PRODUCTS_FAIL,
-    errMsg
+    errMsg, errMsgTopInput
 })
 
 export const GET_PRODUCT_FAIL = 'GET_PRODUCT_FAIL';
-export const getProductFail = errMsg =>({
-    type : GET_PRODUCT_FAIL,
+export const getProductFail = errMsg => ({
+    type: GET_PRODUCT_FAIL,
     errMsg
 })
 
@@ -44,9 +52,9 @@ export const getProductFail = errMsg =>({
 
 // ----- get product start <=> fetch first //
 export const GET_PRODUCTS_START = 'GET_PRODUCTS_START';
-export const getProductsStart = (isNewSearch , isNextPage) => ({
+export const getProductsStart = (isNewSearch, isNextPage) => ({
     type: GET_PRODUCTS_START,
-    isNewSearch , isNextPage
+    isNewSearch, isNextPage
 })
 
 // ----- end ----- //
@@ -91,9 +99,9 @@ export const dispatchCart = (cart) => {
 }
 
 export const ADD_TO_CART_DETAIL = 'ADD_TO_CART_DETAIL'
-export const addToCart_Detail = (product , quantity = 1) => ({
+export const addToCart_Detail = (product, quantity = 1, index) => ({
     type: ADD_TO_CART_DETAIL,
-    product ,quantity
+    product, quantity, index
 })
 
 export const dispatchCart_detail = (cart) => {
@@ -125,14 +133,14 @@ export const deleteProduct = (index) => ({
 
 // ----- price by wish user ----- //
 export const GET_MIN_PRICE = 'GET_MIN_PRICE'
-export const getMinPrice = (minPrice)=>({
-    type : GET_MIN_PRICE,
+export const getMinPrice = (minPrice) => ({
+    type: GET_MIN_PRICE,
     minPrice
 })
 
 export const GET_MAX_PRICE = 'GET_MAX_PRICE'
-export const getMaxPrice = (maxPrice)=>({
-    type : GET_MAX_PRICE,
+export const getMaxPrice = (maxPrice) => ({
+    type: GET_MAX_PRICE,
     maxPrice
 })
 
@@ -140,25 +148,25 @@ export const getMaxPrice = (maxPrice)=>({
 
 // ----- show img detail product ----- //
 export const GET_INDEX_IMAGE = 'GET_INDEX_IMAGE'
-export const getIndexImage = (indexImage)=> ({
+export const getIndexImage = (indexImage) => ({
     type: GET_INDEX_IMAGE,
     indexImage
-}) 
+})
 
 // ----- end ----- //
 
 // ----- banner home page ----- //
-export const GET_BANNER = 'GET_BANNER'
-export const getBanner = (banner) =>({
-    type : GET_BANNER,
-    banner
+export const GET_PRODUCTS_HOME = 'GET_PRODUCTS_HOME'
+export const getProducts_Home = (productsHome) => ({
+    type: GET_PRODUCTS_HOME,
+    productsHome
 })
 // ----- end ----- //
 
 // ----- detail banner home page ----- //
 export const GET_EVENT_BANNER = 'GET_EVENT_BANNER'
-export const getEventBanner = eventBanner =>({
-    type : GET_EVENT_BANNER,
+export const getEventBanner = eventBanner => ({
+    type: GET_EVENT_BANNER,
     eventBanner
 })
 
@@ -166,39 +174,150 @@ export const getEventBanner = eventBanner =>({
 
 // ----- history query ----- //
 export const HISTORY_QUERY = 'HISTORY_QUERY'
-export const historyQuery = query =>({
-    type : HISTORY_QUERY,
+export const historyQuery = query => ({
+    type: HISTORY_QUERY,
     query
 })
 
 // ----- end ----- //
-// ----- action fetch detail banner home page ----- //
-// export const getEvent = ()=>{
-//     return dispatch =>{
-//         fetch('https://cors-anywhere.herokuapp.com/https://mapi.sendo.vn/mob/event/deal-soc-xe-may')
-//         // fetch('https://cors-anywhere.herokuapp.com/https://mapi.sendo.vn/mob/event/${campaign_id}')
-     
-//             .then(res => res.json())
-//             .then(json =>{
-//                 dispatch(getEventBanner(json.product))
-//             })
-//             .catch(err => {
-//                 console.error(err)
-//                 dispatch(getProductsFail('rớt mạng rồi nè'))
-//             })
-//     }
-// }
+
+// ----- attribute color ----- //
+export const ATTRIBUTE_COLOR = 'ATTRIBUTE_COLOR'
+export const attributeColor = value => ({
+    type: ATTRIBUTE_COLOR,
+    value
+})
+
 // ----- end ----- //
 
+// ----- attribute size ----- //
+export const ATTRIBUTE_SIZE = 'ATTRIBUTE_SIZE'
+export const attributeSize = value => ({
+    type: ATTRIBUTE_SIZE,
+    value
+})
 
+// // ----- end ----- //
+
+//----- choose color -----//
+export const WISH_COLOR = 'WISH_COLOR'
+export const wishColor = (wishValue, index) => ({
+    type: WISH_COLOR,
+    wishValue, index
+})
+//----- end ----- //
+//----- choose color -----//
+export const WISH_SIZE = 'WISH_SIZE'
+export const wishSize = (wishValue) => ({
+    type: WISH_SIZE,
+    wishValue
+})
+//----- end ----- //
+
+//----- get detail shop -----//
+export const GET_DETAIL_SHOP = 'GET_DETAIL_SHOP'
+export const getDetailShop = (detailShop) => ({
+    type: GET_DETAIL_SHOP,
+    detailShop
+})
+
+// ----- end ----- // 
+
+// ----- get package discount ----- //
+export const GET_PACKAGE_DISCOUNT = 'GET_PACKAGE_DISCOUNT'
+export const getPackageDiscount = (packageDiscount) => ({
+    type: GET_PACKAGE_DISCOUNT,
+    packageDiscount
+})
+
+// ---- end ----- //
+
+// ----- wish user name ----- //
+export const WISH_USER_NAME = 'WISH_USER_NAME'
+export const wishUserNameFunc = userName => ({
+    type: WISH_USER_NAME,
+    userName
+})
+
+// ----- end ----- //
+
+// ----- wish user name ----- //
+export const WISH_PASS_WORD = 'WISH_PASS_WORD'
+export const wishPassWordFunc = passWord => ({
+    type: WISH_PASS_WORD,
+    passWord
+})
+
+// ----- end ----- //
+// ----- submit user ----- //
+export const SUBMIT_USER = 'SUBMIT_USER'
+export const submitUser = (userName, passWord) => ({
+    type: SUBMIT_USER,
+    userName, passWord
+})
+// ----- end ----- //
+
+// ----- mess logining ----- //
+export const MESS_LOGINING = 'MESS_LOGINING'
+export const messLogining = mess => ({
+    type: MESS_LOGINING,
+    mess
+})
+// ----- end ----- //
+// ----- fail submit ----- //
+export const WRONG_INFO = 'WRONG_INFO'
+export const wrongInfo = (mess) => ({
+    type: WRONG_INFO,
+    mess
+})
+
+
+// ----- end ----- //
+// ----- log out user ----- //
+export const LOG_OUT = 'LOG_OUT'
+export const logOut = (mess) => ({
+    type: LOG_OUT,
+    mess
+})
+
+// ----- end ----- //
+// ----- email user -----//
+export const WISH_EMAIL = 'WISH_EMAIL'
+export const wishEmailUser = wishEmail => ({
+    type: WISH_EMAIL,
+    wishEmail
+})
+// ----- registration ----- //
+export const REGISTRATION = 'REGISTRATION'
+export const regisNewUser = (userName, passWord, Email) => ({
+    type: REGISTRATION,
+    userName, passWord, Email
+})
+
+// ----- end ----- //
+// ----- err mess registration ----- //
+export const ERR_MESS_REGISTRATION = 'ERR_MESS_REGISTRATION'
+export const errMessRegistration = mess => ({
+    type: ERR_MESS_REGISTRATION,
+    mess
+})
+// ----- end ----- //
+
+// ----- get type home ----- //
+export const TYPES_HOME = 'TYPES_HOME'
+export const typesHome = (types) => ({
+    type: TYPES_HOME,
+    types
+})
 // ----- action get banner homepage ----- //
-export const getHomeApi = () => {
+export const getProductsHome = () => {
     return dispatch => {
-        fetch(HOME_API) // page , query
+        fetch(RECOMMEND) // page , query
             .then(res => res.json()) //=> promise 1 chiều
             .then(json => {
                 //dispath
-                dispatch(getBanner(json[0].data.list))
+                dispatch(getProducts_Home(json))
+                // getAllTypeHome(json)
             })
             .catch(err => {
                 console.error(err)
@@ -206,21 +325,36 @@ export const getHomeApi = () => {
             })
     }
 }
+
+export const getTypesHome = () => {
+    return dispatch => {
+        fetch(HOME_API)
+            .then(res => res.json())
+            .then(json => {
+                dispatch(typesHome(json))
+            })
+            .catch(err => {
+                console.error(err)
+                dispatch(getProductsFail('rớt mạng rồi nè'))
+            })
+    }
+
+}
 // ----- end ----- //
 
 // ----- action get product for website ------ //
-export const getProducts = (query, page = 1, isNewSearch  = false , isNextPage = false , isFilter = false) => {
+export const getProducts = (query, page = 1, isNewSearch = false, isNextPage = false, isFilter = false) => {
     return dispatch => {
-        dispatch(getProductsStart(isNewSearch ,isNextPage));
-        
+        dispatch(getProductsStart(isNewSearch, isNextPage));
+
         // fetch(makeProductsApi(page, query))
-        fetch(makeProductsApi(page , query))
-         // page , query
+        fetch(makeProductsApi(page, query))
+            // page , query
             .then(res => res.json())
             .then(json => {
                 //dispath
-                dispatch(getProductsSucess(json.data, page, query , isFilter))
-                
+                dispatch(getProductsSucess(json.data, page, query, isFilter))
+
             })
             .catch(err => {
                 console.error(err)
@@ -239,21 +373,53 @@ export const getDetailProduct = (id) => {
             .then(json => {
                 let x = Array.isArray(json)
                 console.log(x)
-                if ( x === false){
-                    dispatch(getProduct(json))
-                }else{
+                if (x === false) {
+                    dispatch(getProduct(json));
+                    for (let i = 0; i <= json.attribute.length - 1; i++) {
+                        switch (json.attribute[i].name) {
+                            case "Kích thước": {
+                                dispatch(attributeSize(json.attribute[i].value))
+                                break;
+                            }
+                            case "Màu sắc": {
+                                dispatch(attributeColor(json.attribute[i].value))
+                                break;
+                            }
+                            case "Kích thước quần": {
+                                dispatch(attributeSize(json.attribute[i].value))
+                                break;
+                            }
+                            default: return 'nothing'
+                        }
+                    }
+                } else {
                     dispatch(getProductFail('Sorry about this problem but the product you want to buy can not found...'))
                 }
-                
             })
             .catch(err => {
                 console.error(err)
-
             })
     }
 }
 // ----- end ----- //
 
+// ----- action get detail info shop ----- //
+export const getDetailInfoShop = (id) => {
+    return dispatch => {
+        fetch(makeShopDetailApi(id))
+            .then(res => res.json())
+            .then(json => {
+                dispatch(getDetailShop(json))
+            })
+            .catch(err => {
+                console.error(err)
+                dispatch(getProductsFail('We have some problem about connecting'))
+            })
+    }
+}
+
+
+// ----- end ----- //
 
 // ----- action login user ------ //
 export const login = (username, password) => {

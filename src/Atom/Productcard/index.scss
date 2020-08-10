@@ -6,6 +6,7 @@
     position: relative;
     border-radius: 4px;
     transition: all 0.3s;
+    min-height: 480px;
     &:hover{
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.459);
     }
@@ -13,7 +14,7 @@
         position: absolute;
         top: 15px;
         right: 15px;
-        background: rgba(245, 4, 4, 0.856);
+        background:  rgba(255, 0, 0, 0.904);
         text-align: center;
         border-radius: 100%;
         width: 40px;
@@ -35,67 +36,114 @@
             width: 100%;
             height: 198px;
             object-fit: contain;
-        }
-        &:hover{
-            img{
-                opacity: 0.5;
-            }
-            .btn-add{
-                top: 50%;
-                right: 20%;
-            }
-            .btn-go{
-                top: 50%;
-                left: 20%;
+            transition: all 0.5s;
+            overflow: hidden;
+            &:hover{
+                transform: scale(1.2);
             }
         }
     }
-    .btn-add,
-    .btn-go{
-        position: absolute;
-        top: 0;
-        transition: all 0.3s;
-        font-size: 0;
-        padding: 0;
-        border: none;
-        &:focus{
-            outline: none;
-        }
-        &:hover{
-            background: #189eff;
-            color: white;
-        }
-        &::before{
-            display: inline-block;
-            font-size: 20px;
-            width: 50px;
-            height: 40px;
-            padding: 5px;
-            font-weight: 300;
-        }
-    }
-    .btn-add{
-       right: -100px;
-       &::before{
-            font-family: 'Font Awesome 5 Pro';
-            content: '\f07a';
-       }
-    }
-    .btn-go{
-        left: -100px;
-        &::before{
-            font-family: 'Font Awesome 5 Pro';
-            content: '\f35d';
-        }
-    }
-    .name-product{
+    .about-package{
         display: flex;
-        min-height: 48px;
         align-items: center;
+        margin-bottom: 16px;
+        min-height: 24px;
+        img{
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+        span{
+            display: inline-block;
+            font-size: 14px;
+        }
     }
-    
+    .info-product{
+        .rating-and-order{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            color: #bababa;
+            font-weight: 500;
+            span{
+                display: block;
+            }
+            span.order-count{
+                text-align: right;
+                font-size: 14px;
+                &::before{
+                    content: '\f02b';
+                    font-family: 'Font Awesome 5 Pro';
+                }
+            }
+        }
 
+        .name-product{
+            display: flex;
+            min-height: 48px;
+            font-weight: 500;
+        }
+        .price-product{
+            display: flex;
+            justify-content: flex-start;
+            p{
+                flex: 0 0 50%;
+                max-width: 50%;
+                &:nth-child(2){
+                    text-align: right;
+                }
+            }
+        }
+
+    }
+
+    .senmall{
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        background: #bababa0a;
+        width: calc(100% - 30px);
+        align-items: center;
+        hr{
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0 0 5px 0;
+        }
+        p{
+            font-size: 14px;
+            margin: 5px 0 10px;
+            color: #bababa;
+            &:nth-child(2){
+                font-size: 0;
+                text-align: center;
+                &::before{
+                    content :'\f494';
+                    font-family: 'Font Awesome 5 Pro';
+                    font-size: 14px;
+                    margin-right: 10px;
+                }
+            }
+            &:nth-child(3){
+                font-weight: 500;
+            }
+        }
+    }
 }
 .icon-star{
-    color: yellow;
+    color: #ffc120;
+    
 }
+
+
+// gtm +7  , gtm -6
+// 7 -- 6 = 13 ( convert time > time viet nam)
+// 4:20 AM 07/08/2020
+// 5:20 PM 06/08/2020
+// ( tomorrow )
+// 1$ = 23.000vnd
+// 23.000 = 1 canadian dollar
+// calc(device width - 30px auto compiding)
+

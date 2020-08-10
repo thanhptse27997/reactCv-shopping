@@ -1,0 +1,20 @@
+.attribute-product-color{
+    display: block;
+    min-width: 50px;
+    max-width: 2000px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #bababa;
+    margin: 10px 10px 10px 0;
+    border-radius: 4px;
+    &:hover{
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.459);
+    }
+    &:focus{
+        outline: none;
+    }
+}
+.active-color{
+    background: #189eff;
+}

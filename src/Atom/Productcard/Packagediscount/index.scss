@@ -1,0 +1,28 @@
+.shipping_discount,
+.installment,
+.instant{
+    width: 100%;
+    border-radius: 0 20px 20px 0;
+    img{
+        margin-right: 15px;
+    }
+}
+.shipping_discount {
+    background: #e2f6f7;
+    span{
+        color: #14babd;
+    }
+}
+
+.installment{
+    background: #e2e6f2;
+    span{
+        color: #133096;
+    }
+}
+.instant{
+    background : #eaf6ee;
+    span{
+        color: #449460;
+    }
+}

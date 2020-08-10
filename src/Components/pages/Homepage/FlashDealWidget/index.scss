@@ -1,0 +1,220 @@
+.flash-sale-content{
+    margin-bottom: 50px;
+    .block-title-time-end-fls{
+        // background-image: linear-gradient(90deg, rgb(238, 39, 36), rgb(244, 166, 109)) ;
+        background: #189eff;
+        border-radius: 4px;
+    }
+    .dont-know{
+        background: url('https://media3.scdn.vn/img3/2019/10_16/IUHU9r.png') 0px 0px / auto 100% no-repeat;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center; 
+    }
+    .title-fls,
+    .block-countdown{
+        height: 100%;
+    }
+    h4{
+       padding: 15px;
+       font-weight: 700;
+       color: white;
+       font-style: italic;
+       margin: 0;
+       margin: 10.5px;
+       &::before{
+           content: '\f0e7';
+           font-family: 'Font Awesome 5 Free';
+           font-weight: 700;
+           color: white;
+           margin-right: 5px;
+       }
+    }
+    .block-countdown{
+        padding: 15px;
+        display: flex;
+        justify-content: flex-start;
+        text-align: center;
+        span{
+            display: inline-block;
+            width: 30px;
+            padding: 5px;
+            margin: 10px;
+            border-radius: 4px;
+            background: black;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+            position: relative;
+            line-height: 20px;
+            &:nth-child(1),
+            &:nth-child(2){
+                &::after{
+                    position: absolute;
+                    content: ':';
+                    right: -10px;
+                    color: black;
+                }
+            }
+        }
+    }
+}
+
+
+
+.swiper-container{
+    border-width: 1px 0 0 0;
+    border-color: #bababa;
+    border-style: solid;
+    .swiper-button-next,
+    .swiper-button-prev{
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background: white;
+        opacity: 0.5;
+        transition: all 0.3s;
+        &::after{
+            font-size: 14px;
+            color: black;
+            font-weight: 500;
+        }
+        &:hover{
+            opacity: 1;
+        }
+    }
+    .swiper-button-next{
+        right: 0;
+    }
+    .swiper-button-prev{
+        left: 0;
+    }
+}
+.swiper-slide{
+    margin: 15px 0 !important;
+    padding: 0 15px;
+    flex: 0 0 200px;
+    max-width: 200px;
+    transition: all 0.3s;
+    border-radius: 4px;
+    &:hover{
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.459);
+    }
+    .product-fls{
+        position: relative;
+        text-align: center;
+        border-radius: 4px;
+        img.clear-all{
+            width: 100%;
+            position: absolute;
+            top: 15px;
+            right: 0;
+            display: none;
+            z-index: 1000;
+        }
+        a{
+            display: inline-block;
+            margin: 15px 0;
+            position: relative;
+            text-decoration: none;
+            overflow: hidden;
+            &:hover{
+                .recomend-detail{
+                    transform : translateX(0%) translateY(-50%) scale(1);
+                }
+                img{
+                    opacity: 0.2;
+                }
+                &::after{
+                    right: 10%;
+                }
+            }
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 4px;
+                transition: all 0.3s;
+       
+            }
+            .recomend-detail{
+                display: block;
+                position: absolute;
+                top: 50%;
+                transform : translateX(0%) translateY(-50%) scale(0);
+                color: black;
+                font-size: 18px;
+                width: 100%;
+                transition: all 0.3s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-style: italic;
+                border-radius: 4px;
+                font-weight: 500;
+            }
+        }
+
+        span.promo-fls{
+            display: block;
+            position: absolute;
+            top: 0;
+            right: -15px;
+            padding: 10px 4px;
+            background: red;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            font-size: 14px;
+            color: white;
+            font-weight: 500;
+        }
+        p.price-fls{
+            color: red;
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        p.total-products-fls{
+            height: 24px;
+            width: 100%;
+            min-height: 24px;
+            background: #189eff;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            span.total-quantity-sold{
+                background: rgba(245, 245, 245, 0.445);
+                display: inline-block;
+                min-height: 24px;
+                border-radius: 20px;
+                position: relative;
+            }
+            span.status-moment{
+                position: absolute;
+                top: 1.5px;
+                min-width: 75px;
+                transform: translateX(70%);
+                display: inline-block;
+                color: black;
+                font-size: 14px;
+                font-weight: 500;
+               
+            }
+            img.img-sale{
+                width: 45px;
+                position: absolute;
+                left: -10px;
+                bottom: -5px;
+                object-fit: contain;
+                display: none;
+            }
+        }
+
+
+
+    }
+}
+// ignore slick slider , user swiper with url : 'https://stackoverflow.com/questions/59170587/initialize-swiper-in-reactjs'

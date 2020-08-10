@@ -1,0 +1,88 @@
+.container-registration{
+    padding: 15px;
+    .form-regis{
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        input,
+        button{
+            border: 1px solid #bababa;
+            border-radius: 4px;
+            &:focus{
+                outline: none;
+            }
+        }
+        input{
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        button{
+            padding: 10px 15px;
+            transition: all 0.3s;
+            &:hover{
+                background: #189eff;
+                color: white;
+            }
+        }
+    }
+    p.err-mess-regis{
+        max-width: 300px;
+        margin: 0 auto;
+        padding: 0 15px;
+        text-align: center;
+        margin-top: 20px;
+        font-style: italic;
+        font-weight: 500;
+        margin-bottom: 20px;
+        a{
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            &:hover{
+                color: #189eff;
+            }
+        }
+    }
+    .back-to-list{
+        display: flex;
+        justify-content: center;
+        a{
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+            border : 1px solid black;
+            padding: 15px;
+            border-radius: 4px;
+            transition: all 0.5s;
+            position: relative;
+            overflow: hidden;
+            &:hover{
+                border-color: #189eff;
+                color: white;
+                background: #189eff;
+                box-shadow: 0px 0px 4px 6px #189eff inset;
+                padding: 15px 15px 15px 30px;
+                &::before{
+                    left: 10px;
+                }
+            }
+            &::before{
+                position: absolute;
+                left: -100%;
+                content: '\f060';
+                font-size: 14px;
+                font-family: 'Font Awesome 5 Pro';
+                transition: all 0.5s;
+                margin-top: 1px;
+                color: white;
+            }
+        }
+    }
+
+}

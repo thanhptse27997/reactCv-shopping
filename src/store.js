@@ -12,6 +12,7 @@ const logger = ({ getState }) => {
     }
 
 }
+// GENERATE_SOURCEMAP=false
 
 
 const middleware = [logger,thunk];

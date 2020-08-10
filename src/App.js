@@ -6,6 +6,10 @@ import Homepage from './Components/pages/Homepage';
 import Detailpage from './Components/pages/Detailpage';
 import Cart from './Components/pages/Cart';
 import Finishorder from './Components/pages/Finishorder';
+import Introduce from './Components/pages/Introduce'
+import Login from './Components/pages/Login'
+import Registration from './Components/pages/Registration';
+import UserAccount from './Components/pages/UserAccount';
 
 
 
@@ -20,7 +24,11 @@ class App extends React.Component{
             <Route exact path ='/reactCv-shopping/list' component={Listpage} />
             <Route exact path ='/detail' component={Detailpage} />
             <Route exact path ='/reactCv-shopping/cart' component={Cart} />
+            <Route exact path ='/reactCv-shopping/login' component={Login} />
+            <Route exact path ='/reactCv-shopping/registration' component={Registration} />
+            <Route exact path ='/reactCv-shopping/user' component={UserAccount} />
             <Route exact path ='/reactCv-shopping/finishOrder' component={Finishorder} />
+            <Route exact path ='/reactCv-shopping/introduce' component={Introduce} />
           </Switch>
         </Layout>
       </Router>
