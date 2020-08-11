@@ -12,49 +12,41 @@
     padding: 20px;
     button{
         border: 1px solid black;
-        padding: 10px 20px;
+        padding: 10px 30px;
         border-radius: 4px;
         overflow: hidden;
-        position: relative;
         display: flex;
         align-items: center;
         z-index: 1;
-        &::after{
-            position: absolute;
-            content: '\f061';
-            font-family: 'Font Awesome 5 Pro';
-            font-size: 14px;
-            right : -100%;
-            transition: all 0.5s;
-            margin-top: 1px;
-        }
         span{
             display: inline-block;
             transition: all 0.5s;
+            position: relative;
+            &::after{
+                position: absolute;
+                content: '\f061';
+                font-family: 'Font Awesome 5 Pro';
+                font-size: 14px;
+                right : -100%;
+                transition: all 0.5s;
+                top: 2px;
+            }
         }
         &:hover{
             border-color: #189eff;
             background: #189eff;
             span{
-                margin-right: 10px;
                 color: white;
+                &::after{
+                    opacity: 1;
+                    right: -20px;
+                    color: white;
+                }
             }
-            &::after{
-                opacity: 1;
-                right: 10px;
-                margin-left: 5px;
-                color: white;
-            }
-        }
-        // &:hover{
-        //     border-color: #189eff;
-        //     color: white;
-        //     background: #189eff;
-        //     box-shadow: 0px 0px 4px 6px #189eff inset;
-        // }
-        // &:focus{
-        //     outline: none;
-        // }
 
+        }
+        &:focus{
+            outline: none;
+        }
     }
 }

@@ -80,9 +80,18 @@
         }
 
         .name-product{
-            display: flex;
+            display: inline-block;
             min-height: 48px;
             font-weight: 500;
+            text-decoration: none;
+            color: black;
+            margin-bottom: 16px;
+            p{
+                margin: 0;
+            }
+            &:hover{
+                color: #189eff;
+            }
         }
         .price-product{
             display: flex;

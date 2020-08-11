@@ -9,8 +9,8 @@ class Filter extends React.Component {
     state = {
         query: '',
         queryDefault: '',
-        minPriceDefault: 0,
-        maxPriceDefault: 0,
+        minPriceDefault: '',
+        maxPriceDefault: '',
         errMgsFilter: 0,
     }
 
@@ -40,7 +40,7 @@ class Filter extends React.Component {
         }
         if (this.state.queryDefault.length !== 0 && this.state.minPriceDefault !== 0 && this.state.maxPriceDefault !== 0) {
             this.props.getProducts(this.state.query, 1, true, false, true)
-            this.setState({ ...this.state, queryDefault: '', maxPriceDefault: 0, minPriceDefault: 0 })
+            this.setState({ ...this.state, queryDefault: '', maxPriceDefault: '', minPriceDefault: '' })
         }
     }
     handleChangeFilter = (event) => {

@@ -6,9 +6,8 @@ class Introduce extends React.Component {
         return (
             <div className='introduce-page'>
                 <h4 className='text-intro-author'>
-                    Hi, I'm thanhPham - student of NC and author of this project.
+                    Hi, I am thanhPham - student of NC and author of this project.
                 </h4>
-
                 <div className='block-intro-project'>
                     <p>The demo version is built on API Sendo with the most basic functions of a shopping website.</p>
                     <p>API Sendo used to free for my school until I saw Cors Policy on Console. That means they have taken the copyright back and I can't know exactly Url of the API to get data of other pages.</p>
@@ -39,7 +38,7 @@ class Introduce extends React.Component {
                 </div>
 
                 <div className='note'>
-                    <p>Because I'm a newbie so I don't have ideas to build perfect version.</p>
+                    <p>Because I am a newbie so I don't have ideas to build perfect version.</p>
                     <p>Thanks for reading.</p>
                 </div>
                 <div className='back-to-list'>

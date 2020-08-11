@@ -68,7 +68,7 @@ class FlashDealWidget extends React.Component {
                 </div>
                 <Swiper
                     spaceBetween={50}
-                    slidesPerView={5.7}
+                    slidesPerView={5.16}
                     navigation
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}
@@ -82,7 +82,7 @@ class FlashDealWidget extends React.Component {
                                 </Link>
                                 <p className='price-fls'>{item.final_price.toLocaleString()}đ</p>
                                 <span className='promo-fls'>-{item.promotion_percent}%</span>
-                                <p className='total-products-fls'><span style={{ width: item.stock_percent + '%'}} className='total-quantity-sold'></span><span className='status-moment'>{item.stock_description}</span><img className='img-sale' style={item.sale_stock_number - item.buy_number <=10? {display : 'block'} : {display : 'none'}} src='https://media3.scdn.vn/img3/2019/1_16/vE4Gfx.png' alt='icon-sale' /></p>
+                                <p className='total-products-fls'><span style={{ width: item.stock_percent + '%'}} className='total-quantity-sold'></span><span className='status-moment'>{item.stock_description}</span><img className='img-sale' style={item.stock_description === "Sắp hết"? {display : 'block'} : {display : 'none'}} src='https://media3.scdn.vn/img3/2019/1_16/vE4Gfx.png' alt='icon-sale' /></p>
                                 <img className='clear-all' src='https://media3.scdn.vn/img2/2018/8_6/CET2Q5.png' alt='Hết hàng' style={item.sale_stock_number === item.buy_number? {display :'block'} : {display : 'none'}} />
                             </div>
                         </SwiperSlide>

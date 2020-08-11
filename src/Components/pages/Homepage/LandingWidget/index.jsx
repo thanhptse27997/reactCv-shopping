@@ -32,10 +32,10 @@ class LandingWidget extends React.Component {
                 </div>
                 <Swiper
                     spaceBetween={50}
-                    slidesPerView={5.7}
+                    slidesPerView={5.12}
                     navigation
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log('slide change')}
+                    // onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
                 >
                     {result.map((item, index) =>
                         <SwiperSlide key={index}>

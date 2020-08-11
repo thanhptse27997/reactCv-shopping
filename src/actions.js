@@ -353,10 +353,13 @@ export const getProducts = (query, page = 1, isNewSearch = false, isNextPage = f
             .then(res => res.json())
             .then(json => {
                 //dispath
-                dispatch(getProductsSucess(json.data, page, query, isFilter))
-
+                if(json.data === undefined){
+                    dispatch(getProductsFail('Bạn đã xem hết sản phẩm'))
+                }else{
+                    dispatch(getProductsSucess(json.data, page, query, isFilter))
+                }
             })
-            .catch(err => {
+            .catch((err) => {
                 console.error(err)
                 dispatch(getProductsFail('We have some problem about connecting'))
             })

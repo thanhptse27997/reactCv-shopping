@@ -41,24 +41,24 @@ class Productcard extends React.Component {
             <div className='product'>
                 <div className='img-product'>
                     <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`}>
-                        {/* <button className='btn-go'>details</button> */}
                         <img src={product.img_url} alt={product.name} />
                     </Link>
-                    {/* <button className='btn-add' onClick={() => this.handleAddToCart(index)}>add to </button> */}
                 </div>
-                    <div className='about-package'>
-                        {product.package_discount.length === 1 && product.package_discount.map((item , index)=>
-                            <PackageDiscount product={item} index={index} key={index} />
-                        )}
-                        {product.package_discount.length >1 && product.package_discount.map((item,index)=>
-                            <PackageDiscountMuti product={item} index={index} key={index} />
-                        ) }
-                    </div>
+                <div className='about-package'>
+                    {product.package_discount.length === 1 && product.package_discount.map((item, index) =>
+                        <PackageDiscount product={item} index={index} key={index} />
+                    )}
+                    {product.package_discount.length > 1 && product.package_discount.map((item, index) =>
+                        <PackageDiscountMuti product={item} index={index} key={index} />
+                    )}
+                </div>
                 <div className='info-product'>
-                    <p className='name-product'>{product.name.slice(0, 42)}{product.name.length < 42 ? '' : '...'}</p>
+                    <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`} className='name-product'>
+                        <p>{product.name.slice(0, 42)}{product.name.length < 42 ? '' : '...'}</p>
+                    </Link>
                     <div className='price-product'>
-                    <p className='final-price' style={product.promotion_percent > 0 ? { display: 'block', color: 'red',fontWeight : '500' } : { display: 'none' }}>{product.final_price.toLocaleString()}đ</p>
-                    <p className='price' style={product.promotion_percent > 0 ? { textDecoration: 'line-through', color :'#bababa' } : { color: 'red',fontWeight : '500', textAlign :'left' }}>{product.price.toLocaleString()}đ </p>
+                        <p className='final-price' style={product.promotion_percent > 0 ? { display: 'block', color: 'red', fontWeight: '500' } : { display: 'none' }}>{product.final_price.toLocaleString()}đ</p>
+                        <p className='price' style={product.promotion_percent > 0 ? { textDecoration: 'line-through', color: '#bababa' } : { color: 'red', fontWeight: '500', textAlign: 'left' }}>{product.price.toLocaleString()}đ </p>
                     </div>
 
                     <div className='rating-and-order'>

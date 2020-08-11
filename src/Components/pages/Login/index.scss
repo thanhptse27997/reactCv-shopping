@@ -60,8 +60,8 @@
             align-items: center;
             text-decoration: none;
             color: black;
-            border : 1px solid black;
-            padding: 15px;
+            border : 1px solid #bababa;
+            padding: 10px 30px;
             border-radius: 4px;
             transition: all 0.5s;
             position: relative;
@@ -71,7 +71,7 @@
                 color: white;
                 background: #189eff;
                 box-shadow: 0px 0px 4px 6px #189eff inset;
-                padding: 15px 15px 15px 30px;
+                // padding: 15px 15px 15px 30px;
                 &::before{
                     left: 10px;
                 }

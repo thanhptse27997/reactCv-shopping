@@ -20,24 +20,24 @@
             margin-right: 10px;
         }
         div.input-filter{
-            flex: 0 0 calc(70% - 80px);
-            max-width: calc(70% - 80px);
+            flex: 0 0 calc(60% - 80px);
+            max-width: calc(60% - 80px);
             input{
                 width: 100%;
-                padding: 15px;
+                padding: 10px 15px;
                 border-width: 1px;
                 border-radius: 4px;
             }
         }
         div.input-min-price,
         div.input-max-price{
-            flex: 0 0 calc(15% - 10px);
-            max-width: calc(15% - 10px);
+            flex: 0 0 calc(20% - 10px);
+            max-width: calc(20% - 10px);
             input{
                 width: 100%;
                 border-width: 1px;
-                height: 100%;
-                padding: 15px;
+                // height: 100%;
+                padding: 10px 15px;
                 border-radius: 4px;
             }
         }
@@ -48,7 +48,7 @@
             button{
                 font-size: 0;
                 height: 100%;
-                width: 100%;
+                width: 46px;
                 border-radius: 4px;
                 transition: all 0.3s;
                 &:hover{
@@ -93,7 +93,7 @@
             }
         }
         select{
-            padding: 15px;
+            padding: 10px 15px;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;

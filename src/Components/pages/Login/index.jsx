@@ -38,7 +38,7 @@ class Login extends React.Component {
                 <form className='form-user'>
                     <input type='text' placeholder='Tên đăng nhập' onChange={this.onChangeUserName} />
                     <input type='password' placeholder='Mật khẩu' onChange={this.onChangePassWord} />
-                    <button onClick={this.submitUser}>đăng nhập</button>
+                    <button onClick={this.submitUser}>Đăng nhập</button>
                     <p className='recomend-regis'>Bạn chưa có tài khoản ? <Link to='/reactCv-shopping/registration'>Đăng kí</Link></p>
                     <p className='err-mess-login' >{this.props.messageLogin==='user logout'? '' : this.props.messageLogin}</p>
                 </form>

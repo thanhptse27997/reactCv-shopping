@@ -79,7 +79,7 @@ header{
         max-width: 1140px;
         display: flex;
         margin: 10px auto 0;
-        padding: 0 15px;
+        padding: 15px;
     }
     .logo{
         flex: 0 0 10%;
@@ -135,8 +135,8 @@ header{
                 border-radius: 4px;
                 &:hover{
                     &::before{
-                        color: white;
-                        background : black;
+                        color: #189eff;
+                        // background : yellow;
                     }
                 }
                 &:before{

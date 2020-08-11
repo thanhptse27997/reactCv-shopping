@@ -14,7 +14,7 @@ class Registration extends React.Component {
         this.props.wishPassWordFunc(value)
     }
     onChangeEmail = event =>{
-        let value = event.target.value
+        let value = event.target.value.trim()
         this.props.wishEmailUser(value)
     }
     submitFormRegistration = (event)=>{
@@ -40,7 +40,7 @@ class Registration extends React.Component {
             <div className='container-registration'  >
                 <form className='form-regis' style={this.props.messageRegistration ==='Đăng kí thành công' ? {display : 'none'} : {display : 'flex'}}>
                     <input type="text" placeholder='Tên đăng nhập' onChange={this.onchangeUserRegistration} />
-                    <input type="text" placeholder='Email của bạn' onChange={this.onChangeEmail} />
+                    <input type="email" placeholder='Email của bạn' onChange={this.onChangeEmail} />
                     <input type='password' placeholder='Mật khẩu' onChange={this.onChangePassRegistration} />
                     <button onClick={this.submitFormRegistration}>Đăng kí</button>
 
