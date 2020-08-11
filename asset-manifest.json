@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/reactCv-shopping/static/css/main.4d03910d.chunk.css",
-    "main.js": "/reactCv-shopping/static/js/main.8c2301eb.chunk.js",
+    "main.css": "/reactCv-shopping/static/css/main.5c4a1fd4.chunk.css",
+    "main.js": "/reactCv-shopping/static/js/main.19e7e76c.chunk.js",
     "runtime-main.js": "/reactCv-shopping/static/js/runtime-main.fd08ea14.js",
     "static/css/2.1c8fa9c2.chunk.css": "/reactCv-shopping/static/css/2.1c8fa9c2.chunk.css",
     "static/js/2.36766b77.chunk.js": "/reactCv-shopping/static/js/2.36766b77.chunk.js",
     "index.html": "/reactCv-shopping/index.html",
-    "precache-manifest.bde833ba41087034522621111f8ceba6.js": "/reactCv-shopping/precache-manifest.bde833ba41087034522621111f8ceba6.js",
+    "precache-manifest.59cb7374d4096dd6c0740cb8c706b2fd.js": "/reactCv-shopping/precache-manifest.59cb7374d4096dd6c0740cb8c706b2fd.js",
     "service-worker.js": "/reactCv-shopping/service-worker.js",
     "static/js/2.36766b77.chunk.js.LICENSE.txt": "/reactCv-shopping/static/js/2.36766b77.chunk.js.LICENSE.txt"
   },
@@ -14,7 +14,7 @@
     "static/js/runtime-main.fd08ea14.js",
     "static/css/2.1c8fa9c2.chunk.css",
     "static/js/2.36766b77.chunk.js",
-    "static/css/main.4d03910d.chunk.css",
-    "static/js/main.8c2301eb.chunk.js"
+    "static/css/main.5c4a1fd4.chunk.css",
+    "static/js/main.19e7e76c.chunk.js"
   ]
 }
