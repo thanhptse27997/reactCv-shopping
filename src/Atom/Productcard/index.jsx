@@ -37,6 +37,54 @@ class Productcard extends React.Component {
     }
     render() {
         let { product, index } = this.props
+        // let lastedPrice = handleCurrency.format(product.final_price)
+        // let defaultPrice = handleCurrency.format(product.price)
+        // if (lastedPrice.length <= 7) {
+        //     lastedPrice = handleCurrency.format(Math.round(lastedPrice) + '000')
+        // }
+        // if (lastedPrice.length === 9) {
+        //     if (lastedPrice.slice(2, 3) === '0' && lastedPrice.slice(3, 5) !== '00') {
+        //         lastedPrice = handleCurrency.format(lastedPrice.slice(0, 2) + lastedPrice.slice(2, 3) + Math.round(lastedPrice.slice(3)) + '000')
+        //     } else if (lastedPrice.slice(2, 4) === '00' && lastedPrice.slice(4, 5) !== '0') {
+        //         lastedPrice = handleCurrency.format(lastedPrice.slice(0, 2) + lastedPrice.slice(2, 4) + Math.round(lastedPrice.slice(4)) + '000')
+        //     } else if (lastedPrice.slice(2, 5) !== '000') {
+        //         lastedPrice = handleCurrency.format(lastedPrice.slice(0, 2) + Math.round(lastedPrice.slice(2)) + '000')
+        //     }
+        // }
+        // if (lastedPrice.length === 10) {
+        //     if (lastedPrice.slice(3, 4) === '0' && lastedPrice.slice(4, 6) !== '00') {
+        //         lastedPrice = handleCurrency.format(lastedPrice.slice(0, 3) + lastedPrice.slice(3, 4) + Math.round(lastedPrice.slice(4)) + '000')
+        //     } else if (lastedPrice.slice(3, 5) === '00' && lastedPrice.slice(5, 6) !== '0') {
+        //         lastedPrice = handleCurrency.format(lastedPrice.slice(0, 3) + lastedPrice.slice(3, 5) + + Math.round(lastedPrice.slice(5)) + '000')
+        //     } else if (lastedPrice.slice(3, 6) !== '000') {
+        //         lastedPrice = handleCurrency.format(lastedPrice.slice(0, 3) + Math.round(lastedPrice.slice(3)) + '000')
+        //     }
+        // }
+        // if (defaultPrice.length <= 7) {
+        //     defaultPrice = handleCurrency.format(Math.round(defaultPrice) + '000')
+        // }
+        // if (defaultPrice.length === 9) {
+        //     if (defaultPrice.slice(2, 3) === '0' && defaultPrice.slice(3, 5) !== '00') {
+        //         defaultPrice = handleCurrency.format(defaultPrice.slice(0, 2) + defaultPrice.slice(2, 3) + Math.round(defaultPrice.slice(3)) + '000')
+        //     } else if (defaultPrice.slice(2, 4) === '00' && defaultPrice.slice(4, 5) !== '0') {
+        //         defaultPrice = handleCurrency.format(defaultPrice.slice(0, 2) + defaultPrice.slice(2, 4) + Math.round(defaultPrice.slice(4)) + '000')
+        //     } else if (defaultPrice.slice(2, 5) !== '000') {
+        //         defaultPrice = handleCurrency.format(defaultPrice.slice(0, 2) + Math.round(defaultPrice.slice(2)) + '000')
+        //     }
+        // }
+        // if (defaultPrice.length === 10) {
+        //     if (defaultPrice.slice(3, 4) === '0' && defaultPrice.slice(4, 6) !== '00') {
+        //         defaultPrice = handleCurrency.format(defaultPrice.slice(0, 3) + defaultPrice.slice(3, 4) + Math.round(defaultPrice.slice(4)) + '000')
+        //     } else if (defaultPrice.slice(3, 5) === '00' && defaultPrice.slice(5, 6) !== '0') {
+        //         defaultPrice = handleCurrency.format(defaultPrice.slice(0, 3) + defaultPrice.slice(3, 5) + + Math.round(defaultPrice.slice(5)) + '000')
+        //     } else if (defaultPrice.slice(3, 6) !== '000') {
+        //         defaultPrice = handleCurrency.format(defaultPrice.slice(0, 3) + Math.round(defaultPrice.slice(3)) + '000')
+        //     }
+        // }
+        //{`${lastedPrice}`}
+        //{`${defaultPrice}`}
+        //{product.final_price.toLocaleString()}
+        //{product.price.toLocaleString()}
         return (
             <div className='product'>
                 <div className='img-product'>
@@ -54,11 +102,11 @@ class Productcard extends React.Component {
                 </div>
                 <div className='info-product'>
                     <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`} className='name-product'>
-                        <p>{product.name.slice(0, 42)}{product.name.length < 42 ? '' : '...'}</p>
+                        <p>{product.name.slice(0, 38)}{product.name.length < 38 ? '' : '...'}</p>
                     </Link>
                     <div className='price-product'>
                         <p className='final-price' style={product.promotion_percent > 0 ? { display: 'block', color: 'red', fontWeight: '500' } : { display: 'none' }}>{product.final_price.toLocaleString()}đ</p>
-                        <p className='price' style={product.promotion_percent > 0 ? { textDecoration: 'line-through', color: '#bababa' } : { color: 'red', fontWeight: '500', textAlign: 'left' }}>{product.price.toLocaleString()}đ </p>
+                        <p className='price' style={product.promotion_percent > 0 ? { textDecoration: 'line-through', color: '#bababa' } : { color: 'red', fontWeight: '500', textAlign: 'left' }}>{product.price.toLocaleString()}đ</p>
                     </div>
 
                     <div className='rating-and-order'>

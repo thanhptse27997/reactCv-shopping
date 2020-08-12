@@ -29,7 +29,7 @@ class Detailpage extends React.Component {
     handleAddToCart_Detail = () => {
         if (this.props.loginStatus === false) {
             alert('Bạn phải đăng nhập');
-        }else {
+        } else {
             if (this.props.attributeColor.length === 0 && this.props.attributeSize.length === 0) {
                 this.props.addToCart_Detail(this.props.product, this.state.quantity * 1);
                 this.setState({ ...this.state, quantity: 1 })
@@ -165,11 +165,12 @@ class Detailpage extends React.Component {
                         <div className='infoproduct'>
 
                             <p className='product-name'>{product.name}</p>
-                            <div className='price-product'>
+                            {product.promotion_percent > 0 ? <div className='price-product'>
                                 <span>-{product.promotion_percent}%</span>
                                 <p>{product.price.toLocaleString()}đ</p>
                                 <p>{product.final_price.toLocaleString()}đ</p>
-                            </div>
+                            </div> : <div className='price-product'><p className='price-no-promotion'>{product.price.toLocaleString()}đ</p></div>}
+
                             <div className='block-rating-total-order'>
                                 <p className='icon-star' style={product.rating_info.percent_star < 0.5 ? { display: 'none' } : { display: 'flex' }}> <span>Đánh giá :</span> {this.showRatingDetail(product.rating_info.percent_star)}</p>
                                 <p className='order-count'>( {product.order_count} <span> Lượt mua</span> )</p>

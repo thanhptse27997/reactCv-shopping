@@ -22,7 +22,6 @@ class Banner extends React.Component {
                 default: break;
             }
         }
-        console.log('mảng banner', result)
         return (
             <div className='banner-category'>
                 <div className='category-home'>

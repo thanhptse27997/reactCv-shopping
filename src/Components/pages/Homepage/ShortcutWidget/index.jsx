@@ -12,7 +12,6 @@ class ShortcutWidget extends React.Component {
                 result = typesHome[i].data.list
             }
         }
-        console.log('list icon shortcut ',result)
         return (
             <div className='list-icon-shortcut'>
                 {result.map((item,index)=>

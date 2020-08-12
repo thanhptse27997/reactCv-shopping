@@ -353,6 +353,7 @@ export const getProducts = (query, page = 1, isNewSearch = false, isNextPage = f
             .then(res => res.json())
             .then(json => {
                 //dispath
+                
                 if(json.data === undefined){
                     dispatch(getProductsFail('Bạn đã xem hết sản phẩm'))
                 }else{

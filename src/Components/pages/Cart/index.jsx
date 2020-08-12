@@ -9,7 +9,13 @@ class Cart extends React.Component {
     inputChange = (index, event) => {
         let quantity = this.props.quantityProduct[index]
         quantity = event.target.value
-        const priceIndex = this.props.cart[index].price * quantity
+        // const priceIndex = this.props.cart[index].final_price * quantity
+        let priceIndex
+        if (this.props.cart[index].promotion_percent > 0) {
+            priceIndex = this.props.cart[index].final_price * quantity
+        } else {
+            priceIndex = this.props.cart[index].price * quantity
+        }
         console.log(priceIndex)
         this.props.getPrice(priceIndex, index, quantity)
     }
@@ -78,7 +84,7 @@ class Cart extends React.Component {
                                 <div>
                                     <ProductOfCart product={item} index={index} />
                                     <p>{item.name}</p>
-                                    <span>-{item.promotion_percent}%</span>
+                                    <span style={item.promotion_percent >0? {display:'block'} : {display:'none'}}>-{item.promotion_percent}%</span>
                                 </div>
 
                             </div>
@@ -104,10 +110,10 @@ class Cart extends React.Component {
                                 <div className='title-props-cart'>
                                     <p>Thành tiền</p>
                                 </div>
-                                <div>
+                                {item.promotion_percent > 0 ? <div>
                                     <p>{totalPriceOfProduct[index].toLocaleString()}đ</p>
                                     <p>{item.price.toLocaleString()}đ</p>
-                                </div>
+                                </div> : <div><p>{totalPriceOfProduct[index].toLocaleString()}đ</p></div>}
                             </div>
                             <div className='btn-delete'>
                                 <button onClick={() => this.handleDelete(index)}>X</button>

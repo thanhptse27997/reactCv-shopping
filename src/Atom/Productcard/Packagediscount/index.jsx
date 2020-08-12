@@ -7,9 +7,8 @@ class PackageDiscount extends React.Component {
     //     colorText.style.color = 'yellow'
     // }
     render() {
-        const { product,index } = this.props
+        const { product } = this.props
         let text = ''
-        console.log('index của package' , index)
         if(product.type === 'shipping_discount'){
             text = 'Miễn phí vận chuyển'
         }else{

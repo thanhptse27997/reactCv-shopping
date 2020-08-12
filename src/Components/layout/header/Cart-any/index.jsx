@@ -4,12 +4,18 @@ import { bindActionCreators } from 'redux'
 import { Button } from 'react-bootstrap'
 import { getDetailProduct, getPrice, deleteProduct } from '../../../../actions'
 import ProductOfCart from '../../../pages/Cart/ProductOfCart'
+import {Link} from 'react-router-dom'
 import './index.scss'
 class CartAny extends React.Component {
     inputChange = (index, event) => {
         let quantity = this.props.quantityProduct[index]
         quantity = event.target.value
-        const priceIndex = this.props.cart[index].price * quantity
+        let priceIndex
+        if (this.props.cart[index].promotion_percent > 0) {
+            priceIndex = this.props.cart[index].final_price * quantity
+        } else {
+            priceIndex = this.props.cart[index].price * quantity
+        }
         console.log(priceIndex)
         this.props.getPrice(priceIndex, index, quantity)
     }
@@ -26,12 +32,12 @@ class CartAny extends React.Component {
         }, 0)
         return (
             <div className='cart-any'>
-                 <div className='list-cart-any' style={this.props.cart.length !==0? {display : 'block'} : {display :'none'}}>
+                <div className='list-cart-any' style={this.props.cart.length !== 0 ? { display: 'block' } : { display: 'none' }}>
                     <table>
                         {this.props.cart.map((item, index) => (
                             <tbody key={index}>
                                 <tr className='tr-row-1'>
-                                    <td><p style={{ paddingTop: '30px' }}> {item.name}</p></td>
+                                    <td><p style={{ paddingTop: '30px' }}>{item.name.slice(0, 30)}{item.name.length < 30 ? '' : '...'}</p></td>
                                     <td><Button variant='outline-danger' onClick={() => this.handleDelete(index)} style={{ fontSize: '12px' }}>X</Button> </td>
                                 </tr>
                                 <tr className='tr-row-2'>
@@ -45,18 +51,18 @@ class CartAny extends React.Component {
                                     <td>-----------------------------------------</td>
                                 </tr>
                             </tbody>
-                          
+
                         ))}
                     </table>
                     <hr />
-                    <div>
-                        <p style={{ color: 'red' }}>Total : {totalPriceOfCart.toLocaleString()}đ</p>
-                        <Button onClick={this.handleOrderSuccess}  style={{ fontSize: '12px' }}>Order Now</Button>
+                    <div className='total-price-all-cart-any'>
+                        <p>Tổng tiền : <span>{totalPriceOfCart.toLocaleString()}đ</span></p>
+                        <Link to='/reactCv-shopping/cart'>Xem giỏ hàng</Link>
                     </div>
                 </div>
 
                 {/* note when cart empty */}
-                <p style={this.props.cart.length !==0? {display : 'none'} : {display : 'block'}}>Giỏ hàng chưa có sản phẩm</p>
+                <p style={this.props.cart.length !== 0 ? { display: 'none' } : { display: 'block' }}>Giỏ hàng chưa có sản phẩm</p>
             </div>
         )
     }

@@ -36,6 +36,7 @@ import {
     TYPES_HOME
     // UNFILTER,
 } from './actions';
+// import handleCurrency from './HandleCurrency'
 const initialState = {
     products: [
 
@@ -92,7 +93,7 @@ const initialState = {
 
 }
 
-// localStorage.clear()
+localStorage.clear()
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case TYPES_HOME: {
@@ -142,7 +143,6 @@ const reducer = (state = initialState, action) => {
                     products = [...products]
                     break;
                 }
-
                 default: break;
             }
             return { ...state, products: [...products], productsFilter: [...productsFilter], valueFilter: action.value, isSorted: isSorted }
@@ -298,7 +298,12 @@ const reducer = (state = initialState, action) => {
             const { userLogged, cart, product, totalPriceOfProduct, quantityProduct, chooseColor, chooseSize, wishColor, wishSize, totalUserAccount } = state
             cart.push(product)
             quantityProduct.push(action.quantity)
-            totalPriceOfProduct.push(product.final_price * action.quantity)
+            // let lastedPrice = handleCurrency.format(product.final_price * action.quantity)
+            if(product.promotion_percent >0){
+                totalPriceOfProduct.push(product.final_price * action.quantity )
+            }else{
+                totalPriceOfProduct.push(product.price * action.quantity )
+            }
             chooseColor.push(wishColor)
             chooseSize.push(wishSize)
             for (let j in totalUserAccount) {
@@ -394,3 +399,5 @@ const reducer = (state = initialState, action) => {
 }
 
 export default reducer;
+
+// check chỗ nào có price + price promotion

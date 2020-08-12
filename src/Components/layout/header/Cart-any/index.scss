@@ -31,6 +31,9 @@
                 &:nth-child(2){
                     text-align: right;
                 }
+                p{
+                    font-weight: 500;
+                }
             }
         }
         .tr-row-2{
@@ -41,6 +44,8 @@
             }
             p{
                 margin: 0;
+                color: red;
+                font-weight: 500;
             }
         }
         div{
@@ -50,6 +55,25 @@
         tbody:last-child{
             .tr-row-3{
                 display: none;
+            }
+        }
+    }
+    .total-price-all-cart-any{
+        p{
+            font-weight: 500;
+        }
+        span{
+            color: red;
+            font-weight: 500;
+        }
+        a{
+            text-decoration: none;
+            display: inline-block;
+            color: black;
+            transition: all 0.3s;
+            &:hover{
+                color: #189eff;
+                font-style: italic;
             }
         }
     }

@@ -29,7 +29,7 @@ class FlashDealWidget extends React.Component {
                 titleFls = typesHome[i].data.title
             }
         }
-        console.log('kiểu', typeof timeFls)
+        // console.log('kiểu', typeof timeFls)
         let milisTimeFls = timeFls * 1000
         // let timeMoment = Date.now()
         // let timeFlashing = timeFls * 1000 - timeMoment
@@ -45,7 +45,7 @@ class FlashDealWidget extends React.Component {
         // console.log('phút = dư của giờ / 60000 = ', Math.trunc((timeFlashing % 3600000) / 60000))
         // console.log('dư của phút = ', (timeFlashing % 3600000) % 60000)
         // console.log('giây = dư của phút / 1000 = ', Math.trunc(((timeFlashing % 360000) % 60000) / 1000))
-        console.log('mili s time', milisTimeFls)
+        // console.log('mili s time', milisTimeFls)
         SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
         const renderer = ({ hours, minutes, seconds }) => {
             return (
@@ -70,8 +70,8 @@ class FlashDealWidget extends React.Component {
                     spaceBetween={50}
                     slidesPerView={5.16}
                     navigation
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log('slide change')}
+                    // onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
                 >
                     {result.map((item, index) =>
                         <SwiperSlide key={index}>
