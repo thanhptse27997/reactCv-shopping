@@ -93,7 +93,7 @@ const initialState = {
 
 }
 
-localStorage.clear()
+// localStorage.clear()
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case TYPES_HOME: {
