@@ -8,6 +8,7 @@ import FlashDealWidget from './FlashDealWidget'
 import {getProducts } from '../../../actions'
 import LandingWidget from './LandingWidget'
 import ProductsHome from './ProductsHome'
+import './index.scss'
 class Homepage extends React.Component{
 
     render(){

@@ -83,7 +83,45 @@ class Filter extends React.Component {
                 <div className='err-mess-filter'>
                     <p>{this.props.errMsg}</p>
                 </div>
+                <div className='block-filter-res'>
+                    <button></button>
+                    <div className='filter-res'>
+                        <div>
+                            <form className='search-product-by-price' onSubmit={() => <Link to='/reactCv-shopping/list'>{this.handleSearchByPrice()}</Link>}>
+                                <div className='input-filter'>
+                                    <input type="text" placeholder='sản phẩm theo giá' onChange={this.handleChangeQuery} value={this.state.queryDefault} required />
 
+                                </div>
+
+                                <div className='input-min-price'>
+                                    <input type="number" min='0' placeholder='Từ' onChange={this.minPrice} value={this.state.minPriceDefault} />
+                                </div>
+                                <div className='input-max-price'>
+                                    <input type="number" min='0' placeholder='Đến' onChange={this.maxPrice} value={this.state.maxPriceDefault} />
+                                </div>
+                                <div className='btn-submit-form'>
+                                    <Link to='/reactCv-shopping/list'><button onClick={this.handleSearchByPrice}>Tìm kiếm</button></Link>
+                                </div>
+                            </form>
+
+                            <div className='select-filter' >
+                                <div>
+                                    <select onChange={this.handleChangeFilter} value={this.props.valueFilter}>
+                                        <option value='default-filter'>Sắp xếp theo </option>
+                                        <option value='lowToHigh'>Giá thấp đến cao</option>
+                                        <option value='highToLow'>Giá cao đến thấp</option>
+                                        <option value="lowToHighRating">0 sao trở lên</option>
+                                        <option value="highToLowRating">5 sao trở xuống</option>
+                                        <option value="mostBuy">Mua nhiều nhất</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className='err-mess-filter'>
+                                <p>{this.props.errMsg}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

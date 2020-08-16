@@ -90,11 +90,11 @@ class Detailpage extends React.Component {
     }
     handleZoomImg = () => {
         const showImgTarget = document.querySelector('.show-img-target')
-        showImgTarget.style.transform = 'translateX(17%) translateY(-25%) scale(1)'
+        showImgTarget.style.transform = 'scale(1)'
     }
     handleOffZoomImg = () => {
         const showImgTarget = document.querySelector('.show-img-target')
-        showImgTarget.style.transform = 'translateX(17%) translateY(-25%) scale(0)'
+        showImgTarget.style.transform = 'scale(0)'
     }
     handleCheckedColor = (index) => {
         let inputTargetColor = document.querySelectorAll('input[type=button][name=color]')
@@ -134,7 +134,6 @@ class Detailpage extends React.Component {
     }
     render() {
         let { product, indexImage, detailShop } = this.props
-        console.log('rerender', this.state.tinhtrang)
         return (
             <div className='container-detail-page'>
                 {product && <Row className='row-detail-page' >
@@ -150,8 +149,9 @@ class Detailpage extends React.Component {
                                         </img>
                                         <button className='previousImg' onClick={this.previousImage}><FontAwesomeIcon icon={faChevronLeft} /></button>
                                         <button className='nextImg' onClick={this.nextImage}><FontAwesomeIcon icon={faChevronRight} /></button>
+                                        <button className='btn-close' onClick={this.handleOffZoomImg}>X</button>
                                     </div>
-                                    <button className='btn-close' onClick={this.handleOffZoomImg}>X</button>
+                                  
                                 </div>
                             </div>
                         </div>
@@ -273,7 +273,8 @@ const mapStateToProps = state => ({
     status: state.status,
     errMsg: state.errMsg,
     quantityProduct: state.quantityProduct,
-    detailShop: state.detailShop
+    detailShop: state.detailShop,
+    recentlyViewedProducts : state.recentlyViewedProducts
 
 })
 const mapDispatchToProps = dispatch => ({

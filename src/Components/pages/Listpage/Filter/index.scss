@@ -4,6 +4,9 @@
     display: flex;
     flex-wrap: wrap;
     position: relative;
+    .block-filter-res{
+        display: none;
+    }
     input,
     button{
         border: 1px solid #bababa;

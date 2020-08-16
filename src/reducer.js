@@ -256,6 +256,24 @@ const reducer = (state = initialState, action) => {
             return { ...state, messageRegistration: action.mess }
         }
         case GET_PRODUCT: {
+            // const {recentlyViewedProducts} = state
+            // if(recentlyViewedProducts.findIndex(x => x.id === action.product.id) >=0){
+            //     console.log('trùng id rồi')
+            // }else{
+            //     recentlyViewedProducts.push(action.product)
+            // }
+
+            
+            // if(recentlyViewedProducts !== undefined){
+
+            //     // for(let i = 0 ; i <= recentlyViewedProducts.length -1 ; i++){
+            //     //     if(action.product.id === recentlyViewedProducts[i].id ){
+            //     //         recentlyViewedProducts.splice(i,1)
+            //     //     }else{
+            //     //         recentlyViewedProducts.push(action.product)
+            //     //     }
+            //     // }
+            // }
             return { ...state, product: action.product, image: action.image, status: 'Start Loading...', detailShop: undefined }
         }
         case GET_DETAIL_SHOP: {

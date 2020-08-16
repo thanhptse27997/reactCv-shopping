@@ -50,3 +50,28 @@
         }
     }
 }
+
+@media(max-width : 767px){
+    .list-page{
+        margin: 0 -20px;
+    }
+    .the-filter{
+        *{
+            display: none !important;
+        }
+        .block-filter-res{
+            display: block !important;
+        }
+    }
+
+}
+@media(max-width : 575px){
+    .list-page{
+        margin: 0 -15px;
+    }
+}
+@media(max-width : 480px){
+    .list-page{
+        margin: 0;
+    }
+}

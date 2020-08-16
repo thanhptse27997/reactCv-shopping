@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Button } from 'react-bootstrap'
 import { getDetailProduct, getPrice, deleteProduct } from '../../../../actions'
 import ProductOfCart from '../../../pages/Cart/ProductOfCart'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './index.scss'
 class CartAny extends React.Component {
     inputChange = (index, event) => {
@@ -30,6 +30,8 @@ class CartAny extends React.Component {
         let totalPriceOfCart = totalPriceOfProduct.reduce((price, number) => {
             return price += number
         }, 0)
+        let x = window.innerWidth
+        console.log('x = width =', x)
         return (
             <div className='cart-any'>
                 <div className='list-cart-any' style={this.props.cart.length !== 0 ? { display: 'block' } : { display: 'none' }}>

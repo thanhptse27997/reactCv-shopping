@@ -91,7 +91,11 @@ class Productcard extends React.Component {
                     <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`}>
                         <img src={product.img_url} alt={product.name} />
                     </Link>
+                    <div className='percent-discout-480' style={product.promotion_percent > 0 ? { display: 'block' } : { display: 'none' }}>
+                    <p> <span>-</span>{product.promotion_percent}%</p>
                 </div>
+                </div>
+                <div>
                 <div className='about-package'>
                     {product.package_discount.length === 1 && product.package_discount.map((item, index) =>
                         <PackageDiscount product={item} index={index} key={index} />
@@ -119,12 +123,13 @@ class Productcard extends React.Component {
                 <div className='percent-discout' style={product.promotion_percent > 0 ? { display: 'block' } : { display: 'none' }}>
                     <p> <span>-</span>{product.promotion_percent}%</p>
                 </div>
-
+                </div>
                 <div className='senmall'>
                     <hr />
                     <p>store</p>
                     <p>{product.shop_name.slice(0, 20)}{product.shop_name.length <= 20 ? '' : '...'}</p>
                 </div>
+
             </div>
         )
     }

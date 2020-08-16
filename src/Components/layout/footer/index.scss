@@ -52,6 +52,8 @@ footer{
         padding: 0 15px;
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
+        text-align: center;
         p{
             flex: 0 0 50%;
             max-width: 50%;
@@ -59,6 +61,73 @@ footer{
             padding: 15px 0;
             &:nth-child(2){
                 text-align: right;
+            }
+        }
+    }
+}
+
+@media(max-width: 991px){
+    .container-footer{
+        .way-to-pay,
+        .friend-shipper{
+            li{
+                flex: 0 0 calc(20% - 20px);
+                max-width: calc(20% - 20px);
+                min-width: initial;
+                margin: 0 10px 10px;
+                img{
+                    max-width: none;
+                    max-height: none;
+                    width: 70px;
+                    height: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width: 584px){
+    .footline{
+        .container-footline{
+            padding: 15px;
+            p{
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding: 0;
+                margin-bottom: 10px;
+                &:nth-child(2){
+                    flex: 0 0 100%;
+                    max-width: 100%;
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+        }
+    }
+}
+@media(max-width:480px){
+    .container-footer{
+        .way-to-pay,
+        .friend-shipper{
+            li{
+                flex: 0 0 calc(25% - 20px);
+                max-width: calc(25% - 20px);
+                min-width: initial;
+                padding: 10px 0;
+            }
+        }
+    }
+}
+
+@media(max-width : 380px){
+    .container-footer{
+        .way-to-pay,
+        .friend-shipper{
+            li{
+                flex: 0 0 calc(33.33% - 20px);
+                max-width: calc(33.33% - 20px);
+                min-width: initial;
+                padding: 10px 0;
             }
         }
     }
