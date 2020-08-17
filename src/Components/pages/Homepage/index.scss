@@ -52,6 +52,16 @@
 }
 
 @media(max-width : 767px){
+    .banner-category{
+        .banner{
+            a.carousel-control-prev,
+            a.carousel-control-next{
+                width: 30px;
+                height: 30px;
+                top: 40%;
+            }
+        }
+    }
     .products-recommend .user-slf ul.list-user-slf li{
         flex: 0 0 calc(33.33% - 20px);
         max-width: calc(33.33% - 20px);
@@ -202,10 +212,6 @@
         .dont-know{
             justify-content: space-between;
         }
-        // h4{
-        //     padding: 15px 3px;
-        //     margin: 10.5px 0;
-        // }
         .block-countdown{
             padding: 15px 3px;
         }
@@ -252,6 +258,16 @@
 
 }
 @media(max-width : 480px){
+    .banner-category{
+        .banner{
+            a.carousel-control-prev{
+                left: 15px;
+            }
+            a.carousel-control-next{
+                right: 15px;
+            }
+        }
+    }
     .banner-event a.link-to-event{
         padding: 0 15px;
     }

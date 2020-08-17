@@ -85,15 +85,16 @@ class Productcard extends React.Component {
         //{`${defaultPrice}`}
         //{product.final_price.toLocaleString()}
         //{product.price.toLocaleString()}
+
         return (
             <div className='product'>
                 <div className='img-product'>
                     <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`}>
                         <img src={product.img_url} alt={product.name} />
                     </Link>
-                    <div className='percent-discout-480' style={product.promotion_percent > 0 ? { display: 'block' } : { display: 'none' }}>
+                    {/* <div className='percent-discout-480' style={product.promotion_percent > 0 ? { display: 'block' } : {display : 'none !important'}}>
                     <p> <span>-</span>{product.promotion_percent}%</p>
-                </div>
+                </div> */}
                 </div>
                 <div>
                 <div className='about-package'>
@@ -106,11 +107,11 @@ class Productcard extends React.Component {
                 </div>
                 <div className='info-product'>
                     <Link to={`/detail?id=${product.id}&name=${product.name}&index=${index}`} className='name-product'>
-                        <p>{product.name.slice(0, 38)}{product.name.length < 38 ? '' : '...'}</p>
+                        <p>{product.name.slice(0, 33)}{product.name.length < 33 ? '' : '...'}</p>
                     </Link>
                     <div className='price-product'>
-                        <p className='final-price' style={product.promotion_percent > 0 ? { display: 'block', color: 'red', fontWeight: '500' } : { display: 'none' }}>{product.final_price.toLocaleString()}đ</p>
-                        <p className='price' style={product.promotion_percent > 0 ? { textDecoration: 'line-through', color: '#bababa' } : { color: 'red', fontWeight: '500', textAlign: 'left' }}>{product.price.toLocaleString()}đ</p>
+                        <p className='final-price' style={product.promotion_percent > 0 ? { display: 'block', color: 'red'} : { display: 'none' }}>{product.final_price.toLocaleString()}đ</p>
+                        <p className='price' style={product.promotion_percent > 0 ? { textDecoration: 'line-through', color: '#bababa',fontSize : '14px' } : { color: 'red', textAlign: 'left' }}>{product.price.toLocaleString()}đ</p>
                     </div>
 
                     <div className='rating-and-order'>
@@ -120,16 +121,16 @@ class Productcard extends React.Component {
                         <span className='order-count' style={product.percent_star < 0.5 ? { flex: '0 0 100%', maxWidth: '100%' } : { flex: '0 0 50%', maxWitdh: '50%' }} > ( {product.order_count === undefined ? '0' : product.order_count >= 1000 ? Math.round((product.order_count / 1000) * 100) / 10 + 'k' : product.order_count} ) </span>
                     </div>
                 </div>
-                <div className='percent-discout' style={product.promotion_percent > 0 ? { display: 'block' } : { display: 'none' }}>
-                    <p> <span>-</span>{product.promotion_percent}%</p>
-                </div>
+
                 </div>
                 <div className='senmall'>
                     <hr />
                     <p>store</p>
-                    <p>{product.shop_name.slice(0, 20)}{product.shop_name.length <= 20 ? '' : '...'}</p>
+                    <p>{product.shop_name.slice(0, 18)}{product.shop_name.length <= 18 ? '' : '...'}</p>
                 </div>
-
+                <div className='percent-discout' style={product.promotion_percent > 0 ? { display: 'block' } : { display: 'none' }}>
+                    <p> <span>-</span>{product.promotion_percent}%</p>
+                </div>
             </div>
         )
     }

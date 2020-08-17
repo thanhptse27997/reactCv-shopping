@@ -171,7 +171,6 @@ class Header extends React.Component {
           <div className='form-search suggest'>
             <form className='form-header' onSubmit={() => <Link to='/reactCv-shopping/list'>{this.handleSearch()}</Link>}>
               <input className='input-search' type='text' placeholder=' Tìm kiếm ' onChange={this.handleChange} onClick={this.clickInput} query={this.props.query} value={this.state.value}></input>
-              <span className='err-mess'>{this.props.errMsgTopInput}</span>
               <Link to='/reactCv-shopping/list' className='btn-submit'> <button onClick={this.handleSearch}>Search</button></Link>
               <div className='history-query' >
                 <HistoryQuery />

@@ -10,6 +10,7 @@ import Introduce from './Components/pages/Introduce'
 import Login from './Components/pages/Login'
 import Registration from './Components/pages/Registration';
 import UserAccount from './Components/pages/UserAccount';
+import './App.css'
 
 
 

@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'Courier Prime';
+    src: url('CourierPrime-Regular.eot');
+    src: local('Courier Prime Regular'), local('CourierPrime-Regular'),
+        url('CourierPrime-Regular.eot?#iefix') format('embedded-opentype'),
+        url('CourierPrime-Regular.woff2') format('woff2'),
+        url('CourierPrime-Regular.woff') format('woff'),
+        url('CourierPrime-Regular.ttf') format('truetype'),
+        url('CourierPrime-Regular.svg#CourierPrime-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

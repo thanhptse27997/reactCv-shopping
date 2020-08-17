@@ -1,3 +1,11 @@
+@import "../../var.scss";
+*{
+    font-family: $main-ff;
+    
+}
+h1,h2,h3,h4,h5{
+    font-family: $title-ff;
+}
 .container{
     margin: 50px auto;
     background: white;
@@ -9,6 +17,7 @@
         justify-content: center;
         border-radius: 100%;
     }
+
 }
 @media(max-width : 991px){
     .container{

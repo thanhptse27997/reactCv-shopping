@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Light.eot');
+    src: local('Poppins Light'), local('Poppins-Light'),
+        url('Poppins-Light.eot?#iefix') format('embedded-opentype'),
+        url('Poppins-Light.woff2') format('woff2'),
+        url('Poppins-Light.woff') format('woff'),
+        url('Poppins-Light.ttf') format('truetype'),
+        url('Poppins-Light.svg#Poppins-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Light_1.eot');
+    src: local('Poppins Light'), local('Poppins-Light'),
+        url('Poppins-Light_1.eot?#iefix') format('embedded-opentype'),
+        url('Poppins-Light_1.woff2') format('woff2'),
+        url('Poppins-Light_1.woff') format('woff'),
+        url('Poppins-Light_1.ttf') format('truetype'),
+        url('Poppins-Light_1.svg#Poppins-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+

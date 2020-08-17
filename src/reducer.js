@@ -256,7 +256,7 @@ const reducer = (state = initialState, action) => {
             return { ...state, messageRegistration: action.mess }
         }
         case GET_PRODUCT: {
-            // const {recentlyViewedProducts} = state
+            let {attributeColor , attributeSize} = state
             // if(recentlyViewedProducts.findIndex(x => x.id === action.product.id) >=0){
             //     console.log('trùng id rồi')
             // }else{
@@ -274,7 +274,7 @@ const reducer = (state = initialState, action) => {
             //     //     }
             //     // }
             // }
-            return { ...state, product: action.product, image: action.image, status: 'Start Loading...', detailShop: undefined }
+            return { ...state, product: action.product, image: action.image, status: 'Start Loading...', detailShop: undefined,attributeColor: [] , attributeSize : []  }
         }
         case GET_DETAIL_SHOP: {
             return { ...state, detailShop: action.detailShop, status: 'Success' }
