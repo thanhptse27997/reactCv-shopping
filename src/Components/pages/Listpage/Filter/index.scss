@@ -1,11 +1,24 @@
 .the-filter{
+    .select-filter-res{
+        display: none;
+    }
+    .btn-filter-res{
+        display: none;
+    }
+    .btn-select-res{
+        display: none;
+    }
+}
+.the-filter-content{
     padding : 15px;
     margin : 15px 0;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    .block-filter-res{
+    .btn-close-filter{
         display: none;
+    }
+    .block-filter{
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
     }
     input,
     button{
@@ -14,7 +27,6 @@
             outline: none;
         }
     }
-
     form.search-product-by-price{
         flex: 0 0 70%;
         max-width: 70%;
@@ -80,23 +92,23 @@
                 content: '\f0de';
                 font-family: 'Font Awesome 5 Free';
                 font-weight: 700;
-                top: 48%;
+                top: 45%;
                 width: 10px;
                 height: 12px;
                 display: flex;
                 align-items: center;
-                right: 20px;
+                right: 5px;
                 transition: all 0.3s;
             }
             &:hover{
                 &::after{
-                    top: 38%;
+                    top: 35%;
                     transform: rotate(180deg);
                 }
             }
         }
         select{
-            padding: 10px 15px;
+            padding: 10px 20px;
             -webkit-appearance: none;
             -moz-appearance: none;
             appearance: none;
@@ -111,6 +123,7 @@
             }
         }
     }
+
     .err-mess-filter{
         margin: 10px 0 15px;
         padding-left : 15px;
@@ -121,4 +134,5 @@
             font-weight: 500;
         }
     }
+
 }

@@ -170,13 +170,11 @@ class Detailpage extends React.Component {
                                 <p>{product.price.toLocaleString()}đ</p>
                                 <p>{product.final_price.toLocaleString()}đ</p>
                             </div> : <div className='price-product'><p className='price-no-promotion'>{product.price.toLocaleString()}đ</p></div>}
-
+                            <p className='brand-product' style={product.brand_name.length === 0 ? { display: 'none' } : { display: 'flex' }}><span>Thương hiệu : </span>{product.brand_name}</p>
                             <div className='block-rating-total-order'>
                                 <p className='icon-star' style={product.rating_info.percent_star < 0.5 ? { display: 'none' } : { display: 'flex' }}> <span>Đánh giá :</span> {this.showRatingDetail(product.rating_info.percent_star)}</p>
                                 <p className='order-count'>( {product.order_count} <span> Lượt mua</span> )</p>
                             </div>
-                            <p className='brand-product' style={product.brand_name.length === 0 ? { display: 'none' } : { display: 'flex' }}><span>Thương hiệu : </span>{product.brand_name}</p>
-
                             <div className='list-color' style={this.props.attributeColor.length === 0 ? { display: 'none' } : { display: 'flex' }}>
                                 <h5>Màu sắc : </h5>
                                 <div className='total-list-color'>

@@ -15,15 +15,12 @@ class Layout extends React.Component {
         // check đờ thùng rác page carts
         // check lại đăng kí input bên reducer (clear)
     }
-
-
-
     render() {
         let { status } = this.props
         return (
             <div>
                 <Header />
-                <section className='container' >
+                <section className='container'>
                     {status === 'Start Loading...' && <img className='img-waiting' src='https://raw.githubusercontent.com/thanhptse27997/reactCv-shopping/gh-pages/assets/images/tploading.gif' alt='loading...' />}
                     {this.props.children}
                 </section>

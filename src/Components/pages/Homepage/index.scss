@@ -272,6 +272,24 @@
         padding: 0 15px;
     }
 }
+@media(max-width: 381px){
+    .block-suggest .title-block-suggest h4{
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px 0;
+    }
+    .products-recommend .title-rfor-you h4{
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin: 10px 0;
+    }
+    .flash-sale-content h4{
+        margin: 10px 0;
+    }
+    .flash-sale-content .block-countdown{
+        padding: 10px;
+    }
+}
 @media(max-width : 380px){
     .list-icon-shortcut .icon{
         flex: 0 0 50%;
