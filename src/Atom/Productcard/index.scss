@@ -6,6 +6,8 @@
     position: relative;
     border-radius: 4px;
     transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
     min-height: 480px;
     &:hover{
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.459);
@@ -40,6 +42,8 @@
             height: 198px;
             object-fit: contain;
             transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
             overflow: hidden;
             &:hover{
                 transform: scale(1.2);

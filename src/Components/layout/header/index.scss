@@ -35,6 +35,8 @@ header{
             color: white;
             padding: 15px 20px;
             transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
             &:hover{
                 color: black;
                 background: white;
@@ -48,6 +50,8 @@ header{
             padding: 15px 20px;
             color: white;
             transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
             &:hover{
                 background: white;
                 color: black;
@@ -67,6 +71,8 @@ header{
                 font-weight: 700;
                 color: white;
                 transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -webkit-transition: all 0.3s;
                 position: absolute;
                 right: 10px;
                 font-size: 16px;
@@ -98,6 +104,8 @@ header{
             height: 44px;
             object-fit: contain;
             transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
         }
     }
     .icon-menu-res{
@@ -160,6 +168,8 @@ header{
                     font-size: 20px;
                     padding: 7px 15px;
                     transition: all 0.3s;
+                    -moz-transition: all 0.3s;
+                    -webkit-transition: all 0.3s;
                     border-radius: 4px;
                 }
             }
@@ -169,6 +179,8 @@ header{
             transform: scale(0);
             background: white;
             transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
             position: absolute;
             width: 100%;
             z-index: 1000;
@@ -202,6 +214,8 @@ header{
                 font-weight: 200;
                 color: white;
                 transition: all 0.3;
+                -moz-transition: all 0.3s;
+                -webkit-transition: all 0.3s;
             }
             & > span{
                 font-size: 16px;
@@ -223,6 +237,8 @@ header{
             font-size: 16px;
             opacity: 0;
             transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
             background: whitesmoke;
             border: 1px solid black;
             right: 9px;
@@ -257,6 +273,8 @@ header{
         justify-content: center;
         transform: scale(0);
         transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        -webkit-transition: all 0.3s;
         .detail-form{
             text-align: center;
             min-width: 500px;
@@ -281,6 +299,8 @@ header{
                     border: 1px solid #bababa;
                     border-radius: 4px;
                     transition: all 0.3s;
+                    -moz-transition: all 0.3s;
+                    -webkit-transition: all 0.3s;
                     font-weight: 500;
                     &:hover{
                         background: #189eff;
@@ -336,6 +356,8 @@ header{
                 background: white;
                 left: -100%;
                 transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                -webkit-transition: all 0.5s;
                 .btn-close{
                     display: flex;
                     justify-content: space-between;
@@ -359,6 +381,8 @@ header{
                             font-size: 25px;
                             font-weight: 700;
                             transition: all 0.3s;
+                            -moz-transition: all 0.3s;
+                            -webkit-transition: all 0.3s;
                             color: white;
                         }
                         &:hover{
@@ -380,6 +404,8 @@ header{
                         max-width: 100%;
                         max-height: 54px;
                         transition: all 0.3s;
+                        -moz-transition: all 0.3s;
+                        -webkit-transition: all 0.3s;
                         a{
                             display: inline-block;
                             width: calc(100% - 15px);
@@ -405,6 +431,8 @@ header{
                                 font-weight: 700;
                                 color: black;
                                 transition: all 0.3s;
+                                -moz-transition: all 0.3s;
+                                -webkit-transition: all 0.3s;
                                 position: absolute;
                                 left: 0;
                                 top: 9px;
@@ -454,6 +482,8 @@ header{
                         font-weight: 200;
                         color: white;
                         transition: all 0.3;
+                        -moz-transition: all 0.3s;
+                        -webkit-transition: all 0.3s;
                     }
                     &:focus{
                         outline: none;
@@ -476,6 +506,8 @@ header{
             background: white;
             right: -100%;
             transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
             overflow: scroll;
             .cart-any{
                 height: 100%;
@@ -507,6 +539,8 @@ header{
                         font-size: 25px;
                         font-weight: 700;
                         transition: all 0.3s;
+                        -moz-transition: all 0.3s;
+                        -webkit-transition: all 0.3s;
                         color: white;
                     }
                     &:focus{
@@ -524,6 +558,8 @@ header{
                     color: white;
                     padding: 8px 10px;
                     transition: all 0.3s;
+                    -moz-transition: all 0.3s;
+                    -webkit-transition: all 0.3s;
                     &:hover,&:focus{
                         color: #189eff;
                     }

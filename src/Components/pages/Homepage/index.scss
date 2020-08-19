@@ -96,6 +96,8 @@
             border-radius: 4px;
             padding:15px;
             transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
             &:hover{
                 box-shadow :0 0 15px rgba(0, 0, 0, 0.459);
             }
@@ -104,6 +106,8 @@
                 object-fit: contain;
                 border-radius: 4px;
                 transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -webkit-transition: all 0.3s;
             }
             img.clear-all{
                 width: 100%;
@@ -139,6 +143,8 @@
                     font-size: 18px;
                     width: 100%;
                     transition: all 0.3s;
+                    -moz-transition: all 0.3s;
+                    -webkit-transition: all 0.3s;
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -229,6 +235,8 @@
                 object-fit: contain;
                 border-radius: 4px;
                 transition: all 0.3s;
+                -moz-transition: all 0.3s;
+                -webkit-transition: all 0.3s;
             }
             p.total-products-fls{
                 span.status-moment{

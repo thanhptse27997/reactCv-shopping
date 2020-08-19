@@ -18,6 +18,8 @@
             padding: 15px;
             border-radius: 4px;
             transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
             position: relative;
             overflow: hidden;
             &:hover{
@@ -37,6 +39,8 @@
                 font-size: 14px;
                 font-family: 'Font Awesome 5 Pro';
                 transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                -webkit-transition: all 0.5s;
                 margin-top: 1px;
                 color: white;
             }

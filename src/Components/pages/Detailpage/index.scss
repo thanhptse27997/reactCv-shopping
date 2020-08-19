@@ -27,6 +27,8 @@
             border: unset;
             border-radius: 40px;
             transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
             &:hover{
                 background: #189eff;
                 color: white;
@@ -45,6 +47,8 @@
             width: 300px;
             height: 300px;
             transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
             cursor: pointer;
             border-radius: 4px;
             object-fit: contain;
@@ -53,6 +57,8 @@
             // transform: translateX(17%) translateY(-45%) scale(0);
             transform: scale(0);
             transition: all 0.3s;
+            -moz-transition: all 0.3s;
+            -webkit-transition: all 0.3s;
             width: 100%;
             // height: 1000px;
             background: rgba(0, 0, 0, 0.774);
@@ -110,6 +116,8 @@
                     height: 40px;
                     display: block;
                     transition: all 0.3s;
+                    -moz-transition: all 0.3s;
+                    -webkit-transition: all 0.3s;
                     border-radius: 4px;
                 }
                 &:hover{
@@ -293,6 +301,8 @@
                     position: absolute;
                     left: -100%;
                     transition: all 0.5s;
+                    -moz-transition: all 0.5s;
+                    -webkit-transition: all 0.5s;
                     color: white;
                 }
                 &::after{
@@ -302,11 +312,15 @@
                     top: -100%;
                     left: 14%;
                     transition: all 0.5s;
+                    -moz-transition: all 0.5s;
+                    -webkit-transition: all 0.5s;
                     color: white;
                     font-size: 10px;
                 }
                 span{
                     transition: all 0.3s;
+                    -moz-transition: all 0.3s;
+                    -webkit-transition: all 0.3s;
                 }
                 &:hover{
                     background: #189eff;
@@ -407,6 +421,8 @@
             padding: 10px 30px;
             border-radius: 4px;
             transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -webkit-transition: all 0.5s;
             position: relative;
             overflow: hidden;
             &:hover{
@@ -426,6 +442,8 @@
                 font-size: 14px;
                 font-family: 'Font Awesome 5 Pro';
                 transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                -webkit-transition: all 0.5s;
                 margin-top: 1px;
                 color: white;
             }
