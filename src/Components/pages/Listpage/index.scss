@@ -60,7 +60,7 @@
       
         .the-filter-content{
             position: fixed;
-            top: 76px;
+            top: 74px;
             right: 0;
             left: -100%;
             bottom: 0;
@@ -148,8 +148,7 @@
                 padding: 8px;
                 &::before{
                     content: '\f0b0';
-                    font-family: 'Font Awesome 5 Free';
-                    font-weight: 700;
+                    font-family: 'Font Awesome 5 Pro';
                     font-size: 20px;
                 }
                 &:focus{
@@ -173,8 +172,7 @@
                 font-size: 20px;
                 &::before{
                     content: '\f550';
-                    font-family: 'Font Awesome 5 Free';
-                    font-weight: 700;
+                    font-family: 'Font Awesome 5 Pro';
                 }
                 &:focus{
                     outline: none;
@@ -185,7 +183,7 @@
             display: block;
             position: fixed;
             left: -100%;
-            top: 75px;
+            top: 74px;
             bottom: 0;
             background: white;
             z-index: 99999;
@@ -193,8 +191,15 @@
             min-width: 300px;
             .block-select-res{
                 .btn-close-select{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
                     background: black;
-                    text-align: right;
+                    p{
+                        margin: 0;
+                        padding: 8px 15px;
+                        color: white;
+                    }
                     button{
                         border: none;
                         background: none;

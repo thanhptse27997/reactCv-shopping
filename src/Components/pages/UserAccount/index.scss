@@ -1,5 +1,8 @@
 .info-user{
     padding: 15px 0;
+    div{
+        margin-bottom: 50px;
+    }
     span{
         font-weight: 500;
     }
@@ -38,5 +41,12 @@
                 color: white;
             }
         }
+    }
+}
+
+
+@media(max-width: 480px){
+    .info-user{
+        padding: 15px;
     }
 }

@@ -119,6 +119,7 @@ class Filter extends React.Component {
                 <div className='select-filter-res'>
                     <div class='block-select-res'>
                         <div className='btn-close-select'>
+                            <p>Tùy chọn</p>
                             <button onClick={this.handleCloseSelect}></button>
                         </div>
                         <select onChange={this.handleTp} value={this.props.valueFilter}>
