@@ -308,9 +308,15 @@
 }
 
 @media(max-width : 480px){
-    .cart-page .details-product-cart div.block div.title-props-cart{
-        text-align: center;
-        padding: 10px 0;
+    .cart-page{
+        .details-product-cart div.block div.title-props-cart{
+            text-align: center;
+            padding: 10px 0;
+        }
+        .total-price-all p,
+        .last-block{
+            padding: 0 15px;
+        }
     }
 }
 @media(max-width : 420px){
