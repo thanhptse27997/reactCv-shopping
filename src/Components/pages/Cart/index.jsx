@@ -115,7 +115,7 @@ class Cart extends React.Component {
                                 {item.promotion_percent > 0 ? <div>
                                     <p>{totalPriceOfProduct[index].toLocaleString()}đ</p>
                                     <p>{item.price.toLocaleString()}đ</p>
-                                </div> : <div><p>{totalPriceOfProduct[index].toLocaleString()}đ</p></div>}
+                                </div> : <div className='block-block-price-product'><p>{totalPriceOfProduct[index].toLocaleString()}đ</p></div>}
                             </div>
                             <div className='btn-delete'>
                                 <button onClick={() => this.handleDelete(index)}>X</button>

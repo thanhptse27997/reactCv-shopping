@@ -117,7 +117,7 @@ class Filter extends React.Component {
                     <button onClick={this.handleShowSelect}></button>
                 </div>
                 <div className='select-filter-res'>
-                    <div class='block-select-res'>
+                    <div className='block-select-res'>
                         <div className='btn-close-select'>
                             <p>Tùy chọn</p>
                             <button onClick={this.handleCloseSelect}></button>

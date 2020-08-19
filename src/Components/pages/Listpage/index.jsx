@@ -14,8 +14,6 @@ class Listpage extends React.Component {
     }
     render() {
         const { isSorted, products, productsFilter } = this.props
-        console.log('render list page')
-
         return (
             <div className='list-page'>
                 <Filter />

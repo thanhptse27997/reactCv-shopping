@@ -6,7 +6,6 @@ class PackageDiscountMuti extends React.Component{
         return(
             <div className={product.type +'-only-icon'} style={{marginRight : '10px'}}>
                 <img src={product.icon} alt="icon"/>
-                {console.log('màu bg của icon' , product.bg_color)}
             </div>
         )
     }

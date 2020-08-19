@@ -246,6 +246,9 @@
             justify-content: flex-start;
             align-items: center;
             margin-bottom: 20px;
+            p{
+                margin: 0;
+            }
             img{
                 width: 120px;
                 height: 120px;
@@ -270,13 +273,18 @@
                 margin: 0;
                 padding: 10px;
             }
+            div.title-props-cart +p{
+                padding: 10.5px;
+            }
             div.title-props-cart + .quantity-of-product{
-                padding: 7px 10px;
+                padding: 7.5px 10px;
                 input{
                     text-align: center;
                 }
             }
-          
+            div.title-props-cart + .block-block-price-product{
+                padding: 10.5px;
+            }
         }
         .product-cart span{
             top: 0;

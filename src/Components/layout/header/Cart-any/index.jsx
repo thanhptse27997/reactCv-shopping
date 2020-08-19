@@ -30,8 +30,6 @@ class CartAny extends React.Component {
         let totalPriceOfCart = totalPriceOfProduct.reduce((price, number) => {
             return price += number
         }, 0)
-        let x = window.innerWidth
-        console.log('x = width =', x)
         return (
             <div className='cart-any'>
                 <div className='list-cart-any' style={this.props.cart.length !== 0 ? { display: 'block' } : { display: 'none' }}>
