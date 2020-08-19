@@ -104,7 +104,9 @@ class Cart extends React.Component {
                                 <div className='title-props-cart'>
                                     <p>Số lượng</p>
                                 </div>
-                                <input index={index} type='number' min='1' value={this.props.quantityProduct[index]} onChange={(event, quantity) => this.inputChange(index, event, quantity)} ></input>
+                               <div className='quantity-of-product'>
+                               <input index={index} type='number' min='1' value={this.props.quantityProduct[index]} onChange={(event, quantity) => this.inputChange(index, event, quantity)} ></input>
+                               </div>
                             </div>
                             <div className='block price-product-cart'>
                                 <div className='title-props-cart'>

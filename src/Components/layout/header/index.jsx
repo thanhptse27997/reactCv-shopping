@@ -193,7 +193,9 @@ class Header extends React.Component {
           <div className='cart-res'>
             <div className='btn-close-cart'>
               <button onClick={this.handleCloseCart}></button>
+              <Link to='/reactCv-shopping/cart' onClick={this.handleCloseCart}>Xem giỏ hàng</Link>
             </div>
+            
             <CartAny />
           </div>
           {/* end */}

@@ -57,11 +57,11 @@ class Filter extends React.Component {
     }
     handleShowSelect = () => {
         let selectTarget = document.querySelector('.select-filter-res')
-        selectTarget.style.transform = 'scale(1)'
+        selectTarget.style.left = '0'
     }
     handleCloseSelect = () => {
         let selectTarget = document.querySelector('.select-filter-res')
-        selectTarget.style.transform = 'scale(0)'
+        selectTarget.style.left = '-100%'
     }
     handleTp = (event) => {
         this.handleChangeFilter(event)

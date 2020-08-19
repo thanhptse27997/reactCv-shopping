@@ -1,3 +1,4 @@
+@import '../../../var.scss';
 .cart-any{
     border : 1px solid black;
     border-radius: 4px;
@@ -11,8 +12,8 @@
     }
     h4{
         margin: 0;
-        padding: 15px 0;
-        width: 40%;
+        padding: 15px 0 15px 15px;
+        width: 50%;
         border: 1px solid #bababa;
         border-color: #bababa;
         border-style: solid;
@@ -67,6 +68,7 @@
         }
         div.btn-delete{
             flex: 0 0 calc(5% - 24px);
+            max-width: calc(5% - 24px);
             margin: 0 12px;
             display: flex;
             align-items: center;
@@ -203,5 +205,93 @@
                 color: white;
             }
         }
+    }
+}
+
+
+@media(max-width : 991px){
+    .cart-page{
+        h4{
+            width: 100%;
+        }
+        .title-cart{
+            border: none;
+        }
+        .details-product-cart div.block img{
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+@media(max-width : 767px){
+    .cart-page{
+        .product-of-cart{
+            border-color: black;
+        }
+        .details-product-cart div.block{
+            flex: 0 0 100%;
+            max-width: 100%;
+            flex-wrap: unset;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 20px;
+            img{
+                width: 120px;
+                height: 120px;
+            }
+            div.title-props-cart{
+                flex: 0 0 30%;
+                max-width: 30%;
+                text-align: left;
+                border: 1px solid #bababa;
+                border-right: none;
+                padding: 10px;
+                p{
+                    margin: 0;
+                }
+            }
+            div.title-props-cart +div,
+            div.title-props-cart +p{
+                flex: 0 0 70%;
+                max-width: 70%;
+                border-left: 1px solid #bababa;
+                border-bottom: 1px solid #bababa;
+                margin: 0;
+                padding: 10px;
+            }
+            div.title-props-cart + .quantity-of-product{
+                padding: 7px 10px;
+                input{
+                    text-align: center;
+                }
+            }
+          
+        }
+        .product-cart span{
+            top: 0;
+        }
+        .details-product-cart div.btn-delete{
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0;
+            justify-content: flex-end;
+            padding: 0 15px;
+            button{
+                margin: 0;
+                width: auto;
+                &::before{
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+
+}
+
+@media(max-width : 480px){
+    .cart-page .details-product-cart div.block div.title-props-cart{
+        text-align: center;
+        padding: 10px 0;
     }
 }

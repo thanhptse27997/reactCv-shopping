@@ -67,7 +67,9 @@
             .block-zoom-img{
                 max-width: 500px;
                 max-height: 500px;
-                margin-top: 60px;
+                // margin-top: 60px;
+                position: absolute;
+                top: calc(50% - 250px);
             }
             .block-main-img{
                 position: relative;
@@ -77,11 +79,11 @@
             }
             .previousImg{
                 left : 0px;
-                top : 40%;
+                top : calc(50% - 25px);
             }
             .nextImg{
                 right : 0px;
-                top : 40%;
+                top : calc(50% - 25px);
             }
             img.active-zoom-img{
                 width: 100%;
@@ -431,18 +433,7 @@
     }
 }
 
-@media (max-width : 1280px){
-    .container-detail-page{
-        .firstImage{
-            .show-img-target{
-                .block-zoom-img{
-                    margin-top: 20px;
-                    max-height: 500px;
-                }
-            }
-        }
-    }
-}
+
 
 @media (max-width : 1199px){
     .container-detail-page{
@@ -536,11 +527,6 @@
                 top: 76px;
                 img.active-zoom-img{
                     border-radius: initial;
-                }
-                .block-zoom-img{
-                    margin: 0;
-                    max-height: 460px;
-                    max-width: 460px;
                 }
                 .nextImg{
                     top: 45%;
@@ -674,6 +660,11 @@
     }
 }
 @media(max-width : 480px){
+    .container-detail-page .firstImage .show-img-target .block-zoom-img{
+        max-width: 420px;
+        max-height: 420px;
+        top: calc(50% - 210px);
+    }
     .container-detail-page{
         .infoproduct{
             .list-color,
@@ -758,6 +749,13 @@
     }
 }
 
+@media (max-width: 375px){
+    .container-detail-page .firstImage .show-img-target .block-zoom-img{
+        max-width: 375px;
+        max-height: 375px;
+        top: calc(50% - 185.5px);
+    }
+}
 @media(max-width: 367px){
     .container-detail-page{
         .infoproduct{

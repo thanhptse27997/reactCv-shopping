@@ -485,9 +485,15 @@ header{
                 &::before{
                     display: none;
                 }
+                .total-price-all-cart-any a{
+                    display: none;
+                }
             }
             .btn-close-cart{
                 background: black;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
                 button{
                     border: none;
                     background: none;
@@ -510,6 +516,16 @@ header{
                         &::before{
                             color: #189eff;
                         }
+                    }
+                }
+                a{
+                    display: inline-block;
+                    text-decoration: none;
+                    color: white;
+                    padding: 8px 10px;
+                    transition: all 0.3s;
+                    &:hover,&:focus{
+                        color: #189eff;
                     }
                 }
             }
@@ -571,6 +587,10 @@ header{
     }
 }
 @media(max-width: 380px){
+    header .logo-cart .block-cart-res span{
+        bottom: 2px;
+        right: 0px;
+    }
     header{
         .container-header{
             padding: 15px 5px;

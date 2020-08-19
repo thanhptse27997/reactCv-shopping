@@ -60,7 +60,7 @@
       
         .the-filter-content{
             position: fixed;
-            top: 60px;
+            top: 76px;
             right: 0;
             left: -100%;
             bottom: 0;
@@ -68,7 +68,7 @@
             z-index: 999999;
             max-width: 300px;
             padding: 0;
-            transition: all 0.3s;
+            transition: all 0.5s;
             margin: 0;
             .block-filter{
                 .btn-close-filter{
@@ -97,6 +97,9 @@
                             font-weight: 700;
                             transition: all 0.3s;
                             color: white;
+                        }
+                        &:focus{
+                            outline: none;
                         }
                     }
                 }
@@ -141,13 +144,16 @@
                 height: 50px;
                 border: none;
                 color: white;
-                background: #189eff;
+                background: #404041;
                 padding: 8px;
                 &::before{
                     content: '\f0b0';
                     font-family: 'Font Awesome 5 Free';
                     font-weight: 700;
                     font-size: 20px;
+                }
+                &:focus{
+                    outline: none;
                 }
             }
         }
@@ -162,7 +168,7 @@
                 height: 50px;
                 border: none;
                 color: white;
-                background: #189eff;
+                background: #404041;
                 padding: 8px;
                 font-size: 20px;
                 &::before{
@@ -170,25 +176,22 @@
                     font-family: 'Font Awesome 5 Free';
                     font-weight: 700;
                 }
+                &:focus{
+                    outline: none;
+                }
             }
         }
         .select-filter-res{
             display: block;
             position: fixed;
-            left: 0;
+            left: -100%;
             top: 75px;
-            right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.774);
-            z-index: 999;
-            transition: all 0.3s;
-            transform: scale(0);
+            background: white;
+            z-index: 99999;
+            transition: all 0.5s;
+            min-width: 300px;
             .block-select-res{
-                position: absolute;
-                max-width: 200px;
-                top: calc(50% - 100px);
-                left: calc(50% - 100px);
-                transition: all 0.3s;
                 .btn-close-select{
                     background: black;
                     text-align: right;
@@ -207,21 +210,16 @@
                             transition: all 0.3s;
                             color: white;
                         }
+                        &:focus{
+                            outline: none;
+                        }
                     }
                 }
                 select{
-                    padding: 13.5px 15px;
-                    width: 100%;
+                    padding: 15px 10px;
+                    margin: 20px 10px 0;
+                    width: calc(100% - 20px);
                 }
-                // &::after{
-                //     left: 140px;
-                //     top: 45%;
-                // }
-                // &:hover{
-                //     &::after{
-                //         top: 32%;
-                //     }
-                // }
             }
         }
     }
@@ -236,6 +234,9 @@
     .the-filter{
         .the-filter-content{
             max-width: 100%;
+        }
+        .select-filter-res{
+            min-width: 100%;
         }
     }
     .list-page{
