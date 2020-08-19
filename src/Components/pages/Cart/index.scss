@@ -313,3 +313,14 @@
         padding: 10px 0;
     }
 }
+@media(max-width : 420px){
+    .cart-page h4{
+        padding: 15px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        span{
+            margin-top: 10px;
+        }
+    }
+}

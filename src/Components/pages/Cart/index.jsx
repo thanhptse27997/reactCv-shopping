@@ -64,7 +64,7 @@ class Cart extends React.Component {
             // </div>
             <div className='cart-page'>
                 <div className='title-cart'>
-                    <h4> Giỏ hàng của bạn <span> ( {cart.length} sản phẩm</span> ) </h4>
+                    <h4> Giỏ hàng của bạn <span> ( {cart.length} sản phẩm )</span> </h4>
                 </div>
 
                 {cart.map((item, index) =>
