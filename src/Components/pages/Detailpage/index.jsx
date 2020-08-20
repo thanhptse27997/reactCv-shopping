@@ -109,7 +109,7 @@ class Detailpage extends React.Component {
         for (let i = 0; i < inputTargetSize.length; i++) {
             inputTargetSize[i].classList.remove('active-size');
         }
-        console.log('input target size', inputTargetSize)
+        // console.log('input target size', inputTargetSize)
         inputTargetSize[index].classList.add('active-size');
     }
     handleRemoveTarget = () => {

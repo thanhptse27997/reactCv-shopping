@@ -126,8 +126,8 @@ class FlashDealWidget extends React.Component {
 
                     navigation
                     breakpoints={breakpoints}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
+                    // onSwiper={(swiper) => console.log(swiper)}
                 >
                     {result.map((item, index) =>
                         <SwiperSlide key={index}>

@@ -376,7 +376,7 @@ export const getDetailProduct = (id) => {
             .then(res => res.json())
             .then(json => {
                 let x = Array.isArray(json)
-                console.log(x)
+                // console.log(x)
                 if (x === false) {
                     dispatch(getProduct(json));
                     for (let i = 0; i <= json.attribute.length - 1; i++) {

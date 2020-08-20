@@ -161,7 +161,7 @@ const reducer = (state = initialState, action) => {
                 messageLogin = 'tài khoản chưa được đăng kí'
             }else{
                 for (let i = 0; i <= defaultData.length - 1; i++) {
-                    console.log('i = ', defaultData.length - 1)
+                    // console.log('i = ', defaultData.length - 1)
                     if (action.userName === defaultData[i].userName && action.passWord === defaultData[i].passWord) {
                         loginStatus = true
                         messageLogin = 'success'
@@ -174,12 +174,12 @@ const reducer = (state = initialState, action) => {
                         chooseColor = defaultData[i].chooseColorUser
                         wishPassWord = ''
                         wishUserName = ''
-                        console.log('đã đăng nhập')
+                        // console.log('đã đăng nhập')
                         break;
                     } else {
                         loginStatus = false
                         messageLogin = ' Sai tên đăng nhập hoặc mật khẩu'
-                        console.log('có chạy submit user ko ?')
+                        // console.log('có chạy submit user ko ?')
                     }
                 }
             }
@@ -204,9 +204,9 @@ const reducer = (state = initialState, action) => {
                     totalUserAccount[i].chooseColorUser = chooseColor
                     totalUserAccount[i].chooseSizeUser = chooseSize
                     totalUserAccount[i].historyQueryUser = historyQuery
-                    console.log('có chạy if log out ko ?')
+                    // console.log('có chạy if log out ko ?')
                 }
-                console.log('log này của hàm for')
+                // console.log('log này của hàm for')
             }
             const defaultData = JSON.stringify(totalUserAccount)
             localStorage.setItem('dataUser', defaultData)
@@ -314,7 +314,7 @@ const reducer = (state = initialState, action) => {
                     totalUserAccount[j].chooseColorUser = []
                     totalUserAccount[j].chooseSizeUser = []
                 } else {
-                    console.log('có cạy hàm for trước khi add k ?')
+                    // console.log('có cạy hàm for trước khi add k ?')
                 }
 
             }
@@ -333,7 +333,7 @@ const reducer = (state = initialState, action) => {
             // let defaultData=JSON.stringify(totalUserAccount)
             // localStorage.setItem('dataUser' , defaultData)
 
-            console.log('chạy hết hàm add tocart')
+            // console.log('chạy hết hàm add tocart')
             // const setjson=JSON.stringify(totalUserAccount);
             // localStorage.setItem('totalUserAccount', setjson);
             return { ...state, cart: [...cart], totalPriceOfProduct: [...totalPriceOfProduct], quantityProduct: [...quantityProduct], wishColor: 'none', wishSize: 'none', totalUserAccount: [...totalUserAccount] }

@@ -67,6 +67,10 @@ class Filter extends React.Component {
         this.handleChangeFilter(event)
         this.handleCloseSelect()
     }
+    handleTp2 = ()=>{
+        this.handleSearchByPrice()
+        this.handleCloseFilter()
+    }
     render() {
         return (
             <div className='the-filter'>
@@ -88,7 +92,7 @@ class Filter extends React.Component {
                                 <input type="number" min='0' placeholder='Đến' onChange={this.maxPrice} value={this.state.maxPriceDefault} />
                             </div>
                             <div className='btn-submit-form'>
-                                <Link to='/reactCv-shopping/list'><button onClick={this.handleSearchByPrice}>Tìm kiếm</button></Link>
+                                <Link to='/reactCv-shopping/list'><button onClick={this.handleTp2}>Tìm kiếm</button></Link>
                             </div>
                         </form>
 

@@ -136,7 +136,7 @@
     }
     .last-block{
         text-align: right;
-        margin-bottom: 20px;
+        margin-bottom: 50px;
         button{
             padding: 10px 40px;
             border-width: 1px;
@@ -206,12 +206,11 @@
                 position: absolute;
                 left: -100%;
                 content: '\f060';
-                font-size: 14px;
+                font-size: 15px;
                 font-family: 'Font Awesome 5 Pro';
                 transition: all 0.5s;
                 -moz-transition: all 0.5s;
                 -webkit-transition: all 0.5s;
-                margin-top: 1px;
                 color: white;
             }
         }
@@ -237,7 +236,7 @@
 @media(max-width : 767px){
     .cart-page{
         .product-of-cart{
-            border-color: black;
+            border-color: #bababa;
         }
         .details-product-cart div.block{
             flex: 0 0 100%;
@@ -245,7 +244,8 @@
             flex-wrap: unset;
             justify-content: flex-start;
             align-items: center;
-            margin-bottom: 20px;
+            // margin-bottom: 20px;
+            margin-bottom: 10px;
             p{
                 margin: 0;
             }
@@ -257,33 +257,29 @@
                 flex: 0 0 30%;
                 max-width: 30%;
                 text-align: left;
-                border: 1px solid #bababa;
                 border-right: none;
                 padding: 10px;
+                display: flex;
                 p{
                     margin: 0;
+                }
+                &::after{
+                    content: ':';
+                    display: inline-block;
                 }
             }
             div.title-props-cart +div,
             div.title-props-cart +p{
                 flex: 0 0 70%;
                 max-width: 70%;
-                border-left: 1px solid #bababa;
-                border-bottom: 1px solid #bababa;
                 margin: 0;
                 padding: 10px;
             }
-            div.title-props-cart +p{
-                padding: 10.5px;
-            }
             div.title-props-cart + .quantity-of-product{
-                padding: 7.5px 10px;
+                padding: 7px 10px;
                 input{
                     text-align: center;
                 }
-            }
-            div.title-props-cart + .block-block-price-product{
-                padding: 10.5px;
             }
         }
         .product-cart span{
@@ -328,5 +324,20 @@
         span{
             margin-top: 10px;
         }
+    }
+}
+
+@media(max-width: 320px){
+    .cart-page .details-product-cart div.block{
+        div.title-props-cart{
+            flex: 0 0 40%;
+            max-width: 40%;
+        }
+        div.title-props-cart+div,
+        div.title-props-cart+p{
+            flex: 0 0 60%;
+            max-width: 60%;
+        }
+
     }
 }
