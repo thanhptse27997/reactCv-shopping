@@ -73,7 +73,6 @@
             .block-zoom-img{
                 max-width: 500px;
                 max-height: 500px;
-                // margin-top: 60px;
                 position: absolute;
                 top: calc(50% - 250px);
             }
@@ -94,6 +93,8 @@
             img.active-zoom-img{
                 width: 100%;
                 height: 100%;
+                max-width: 500px;
+                max-height: 500px;
                 object-fit: contain;
                 border-radius: 4px;
                 position: relative;
@@ -682,6 +683,10 @@
         max-height: 420px;
         top: calc(50% - 210px);
     }
+    .container-detail-page .firstImage .show-img-target img.active-zoom-img{
+        max-width: 420px;
+        max-height: 420px;
+    }
     .container-detail-page{
         .infoproduct{
             .list-color,
@@ -771,6 +776,10 @@
         max-width: 375px;
         max-height: 375px;
         top: calc(50% - 185.5px);
+    }
+    .container-detail-page .firstImage .show-img-target img.active-zoom-img{
+        max-width: 100%;
+        max-height: 375px;
     }
 }
 @media(max-width: 367px){
