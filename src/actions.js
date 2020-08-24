@@ -1,4 +1,4 @@
-import { makeProductsApi, makeProductDetailApi, LOGIN_API, HOME_API, makeShopDetailApi,RECOMMEND } from "./apis";
+import { makeProductsApi, makeProductDetailApi, LOGIN_API, makeShopDetailApi, makeHomeApi , makeRecommendProducts } from "./apis";
 
 // ---- Filter ----- //
 export const FILTER = 'FILTER';
@@ -312,7 +312,7 @@ export const typesHome = (types) => ({
 // ----- action get banner homepage ----- //
 export const getProductsHome = () => {
     return dispatch => {
-        fetch(RECOMMEND) // page , query
+        fetch(makeRecommendProducts()) // page , query
             .then(res => res.json()) //=> promise 1 chiều
             .then(json => {
                 //dispath
@@ -328,7 +328,7 @@ export const getProductsHome = () => {
 
 export const getTypesHome = () => {
     return dispatch => {
-        fetch(HOME_API)
+        fetch(makeHomeApi())
             .then(res => res.json())
             .then(json => {
                 dispatch(typesHome(json))

@@ -16,3 +16,9 @@ export const makeProductsApi = (page,query)=>{
 export const makeShopDetailApi = id =>{
     return `https://cors-anywhere.herokuapp.com/${BASE_URL}/mob/shop/${id}/detail`
 }
+export const makeHomeApi = () =>{
+    return `https://cors-anywhere.herokuapp.com/${BASE_URL}/mob/home`
+}
+export const makeRecommendProducts = ()=>{
+    return `https://cors-anywhere.herokuapp.com/${BASE_URL}/mob/home/recommend`
+}
