@@ -128,7 +128,7 @@ class Productcard extends React.Component {
                     <p>store</p>
                     <p>{product.shop_name.slice(0, 18)}{product.shop_name.length <= 18 ? '' : '...'}</p>
                 </div>
-                <div className='percent-discout' style={product.promotion_percent > 0 ? { display: 'block' } : { display: 'none' }}>
+                <div className='percent-discout' style={product.promotion_percent > 1 && Number.isInteger(product.promotion_percent) === true ? { display: 'block' } : { display: 'none' }}>
                     <p> <span>-</span>{product.promotion_percent}%</p>
                 </div>
             </div>
