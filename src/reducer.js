@@ -306,17 +306,18 @@ const reducer = (state = initialState, action) => {
             }
             chooseColor.push(wishColor)
             chooseSize.push(wishSize)
-            for (let j in totalUserAccount) {
-                if (totalUserAccount[j].userName === userLogged[0].name) {
-                    totalUserAccount[j].cartUser = []
-                    totalUserAccount[j].totalPriceOfProductUser = []
-                    totalUserAccount[j].quantityProductUser = []
-                    totalUserAccount[j].chooseColorUser = []
-                    totalUserAccount[j].chooseSizeUser = []
-                } else {
-                    // console.log('có cạy hàm for trước khi add k ?')
+            if(userLogged.length !==0){
+                for (let j in totalUserAccount) {
+                    if (totalUserAccount[j].userName === userLogged[0].name) {
+                        totalUserAccount[j].cartUser = []
+                        totalUserAccount[j].totalPriceOfProductUser = []
+                        totalUserAccount[j].quantityProductUser = []
+                        totalUserAccount[j].chooseColorUser = []
+                        totalUserAccount[j].chooseSizeUser = []
+                    } else {
+                        // console.log('có cạy hàm for trước khi add k ?')
+                    }
                 }
-
             }
             for (let i = 0; i < cart.length - 1; i++) {
                 if (cart[i].id === product.id && chooseColor[i] === wishColor && chooseSize[i] === wishSize) {

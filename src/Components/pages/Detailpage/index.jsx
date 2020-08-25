@@ -2,7 +2,7 @@ import React from 'react'
 import queryString from 'query-string';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getDetailProduct, addToCart_Detail, getIndexImage, getDetailInfoShop } from '../../../actions';
+import { getDetailProduct, addToCart_Detail, getIndexImage, getDetailInfoShop,wishColorFunc,wishSizeFunc } from '../../../actions';
 import DetailImages from './DetailImages';
 import { Row, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -18,7 +18,7 @@ import './index.scss'
 class Detailpage extends React.Component {
     state = {
         quantity: 1,
-        updated: true
+        updated: true,
     }
 
     componentDidMount() {
@@ -27,37 +27,42 @@ class Detailpage extends React.Component {
         this.props.getDetailProduct(id)
     }
     handleAddToCart_Detail = () => {
-        if (this.props.loginStatus === false) {
-            alert('Bạn phải đăng nhập');
-        } else {
-            if (this.props.attributeColor.length === 0 && this.props.attributeSize.length === 0) {
+        let {wishColor , wishSize} = this.props
+        // if (this.props.loginStatus === false) {
+        //     alert('Bạn phải đăng nhập');
+        // } else {
+        if (this.props.attributeColor.length === 0 && this.props.attributeSize.length === 0) {
+            this.props.addToCart_Detail(this.props.product, this.state.quantity * 1);
+            this.setState({ ...this.state, quantity: 1 })
+        } 
+        if (this.props.attributeColor.length !== 0 && this.props.attributeSize.length === 0) {
+            if (wishColor === 'none') {
+                alert('bạn chưa chọn màu')
+            } else {
+                this.props.addToCart_Detail(this.props.product, this.state.quantity * 1)
+                this.setState({ ...this.state, quantity: 1 })
+            }
+        }
+        if (this.props.attributeColor.length !== 0 && this.props.attributeSize.length !== 0) {
+
+            if(wishColor === 'none' && wishSize === 'none'){
+                alert('bạn chưa chọn màu và size')
+            }else{
+                if (wishColor === 'none') {
+                    alert('bạn chưa chọn màu')
+                    this.props.wishSizeFunc('none')
+                }
+                if (wishSize === 'none') {
+                    alert('bạn chưa chọn size')
+                    this.props.wishColorFunc('none')
+                }
+            }
+            if (wishColor !== 'none' && wishSize !== 'none') {
                 this.props.addToCart_Detail(this.props.product, this.state.quantity * 1);
                 this.setState({ ...this.state, quantity: 1 })
             }
-            if (this.props.attributeColor.length !== 0 && this.props.attributeSize.length === 0) {
-                if (this.props.wishColor === 'none') {
-                    alert('bạn chưa chọn màu')
-                } else {
-                    this.props.addToCart_Detail(this.props.product, this.state.quantity * 1)
-                    this.setState({ ...this.state, quantity: 1 })
-                }
-            }
-            if (this.props.attributeColor.length !== 0 && this.props.attributeSize.length !== 0) {
-                if (this.props.wishColor === 'none') {
-                    alert('bạn chưa chọn màu')
-                }
-                if (this.props.wishSize === 'none') {
-                    alert('bạn chưa chọn size')
-                }
-                if (this.props.wishColor !== 'none' && this.props.wishSize !== 'none') {
-                    this.props.addToCart_Detail(this.props.product, this.state.quantity * 1);
-                    this.setState({ ...this.state, quantity: 1 })
-                }
-            }
         }
-
     }
-
     previousImage = () => {
         let { product, indexImage } = this.props
         console.log(indexImage - 1)
@@ -151,7 +156,7 @@ class Detailpage extends React.Component {
                                         <button className='nextImg' onClick={this.nextImage}><FontAwesomeIcon icon={faChevronRight} /></button>
                                         <button className='btn-close' onClick={this.handleOffZoomImg}>X</button>
                                     </div>
-                                  
+
                                 </div>
                             </div>
                         </div>
@@ -272,10 +277,10 @@ const mapStateToProps = state => ({
     errMsg: state.errMsg,
     quantityProduct: state.quantityProduct,
     detailShop: state.detailShop,
-    recentlyViewedProducts : state.recentlyViewedProducts
+    recentlyViewedProducts: state.recentlyViewedProducts
 
 })
 const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators({ getDetailProduct, addToCart_Detail, getIndexImage, getDetailInfoShop }, dispatch)
+    ...bindActionCreators({ getDetailProduct, addToCart_Detail, getIndexImage, getDetailInfoShop,wishColorFunc , wishSizeFunc }, dispatch)
 })
 export default connect(mapStateToProps, mapDispatchToProps)(Detailpage);

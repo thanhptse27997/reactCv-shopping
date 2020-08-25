@@ -201,14 +201,14 @@ export const attributeSize = value => ({
 
 //----- choose color -----//
 export const WISH_COLOR = 'WISH_COLOR'
-export const wishColor = (wishValue, index) => ({
+export const wishColorFunc = (wishValue, index) => ({
     type: WISH_COLOR,
     wishValue, index
 })
 //----- end ----- //
 //----- choose color -----//
 export const WISH_SIZE = 'WISH_SIZE'
-export const wishSize = (wishValue) => ({
+export const wishSizeFunc = (wishValue) => ({
     type: WISH_SIZE,
     wishValue
 })

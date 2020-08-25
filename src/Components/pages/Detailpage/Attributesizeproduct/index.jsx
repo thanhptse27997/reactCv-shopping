@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { wishSize } from '../../../../actions'
+import { wishSizeFunc } from '../../../../actions'
 import './index.scss'
 class AttributeSize extends React.Component {
     handleChooseSize = (event) => {
-        this.props.wishSize(event.target.value)
+        this.props.wishSizeFunc(event.target.value)
     }
     handleActiveAllSize = (event)=>{
         this.handleChooseSize(event);
@@ -27,6 +27,6 @@ const mapStateToProps = state => ({
     indexColor : state.indexColor
 })
 const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators({ wishSize }, dispatch)
+    ...bindActionCreators({ wishSizeFunc }, dispatch)
 })
 export default connect(mapStateToProps, mapDispatchToProps)(AttributeSize);

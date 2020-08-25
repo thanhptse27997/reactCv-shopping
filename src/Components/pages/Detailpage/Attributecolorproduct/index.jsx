@@ -1,11 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {wishColor} from '../../../../actions'
+import {wishColorFunc} from '../../../../actions'
 import './index.scss'
 class AttributeColor extends React.Component {
     handleChooseColor = (event)=>{
-        this.props.wishColor(event.target.value )
+        this.props.wishColorFunc(event.target.value )
     }
     handleActiveAll = (event)=>{
         this.handleChooseColor(event);
@@ -25,6 +25,6 @@ const mapStateToProps = state => ({
     attributeColor : state.attributeColor,
 })
 const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators({wishColor}, dispatch)
+    ...bindActionCreators({wishColorFunc}, dispatch)
 })
 export default connect(mapStateToProps, mapDispatchToProps)(AttributeColor);
