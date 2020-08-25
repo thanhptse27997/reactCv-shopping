@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/reactCv-shopping/static/css/main.917bac53.chunk.css",
-    "main.js": "/reactCv-shopping/static/js/main.b0cb332e.chunk.js",
+    "main.js": "/reactCv-shopping/static/js/main.041059d7.chunk.js",
     "runtime-main.js": "/reactCv-shopping/static/js/runtime-main.fd08ea14.js",
     "static/css/2.8c8f36f3.chunk.css": "/reactCv-shopping/static/css/2.8c8f36f3.chunk.css",
     "static/js/2.4bcde582.chunk.js": "/reactCv-shopping/static/js/2.4bcde582.chunk.js",
     "index.html": "/reactCv-shopping/index.html",
-    "precache-manifest.86d325be9f7743cdfd5576d5222a77af.js": "/reactCv-shopping/precache-manifest.86d325be9f7743cdfd5576d5222a77af.js",
+    "precache-manifest.c9aea09a6751be17ce4744eda1ed6b30.js": "/reactCv-shopping/precache-manifest.c9aea09a6751be17ce4744eda1ed6b30.js",
     "service-worker.js": "/reactCv-shopping/service-worker.js",
     "static/js/2.4bcde582.chunk.js.LICENSE.txt": "/reactCv-shopping/static/js/2.4bcde582.chunk.js.LICENSE.txt",
     "static/media/index.scss": "/reactCv-shopping/static/media/Montserrat-Medium.dfe0419e.svg",
@@ -17,6 +17,6 @@
     "static/css/2.8c8f36f3.chunk.css",
     "static/js/2.4bcde582.chunk.js",
     "static/css/main.917bac53.chunk.css",
-    "static/js/main.b0cb332e.chunk.js"
+    "static/js/main.041059d7.chunk.js"
   ]
 }
